@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sanjay Chouhan</title>
+
+  <link rel="icon" type="image/png" href="/assets/images/favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/assets/images/favicon/favicon.svg" />
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicon/apple-touch-icon.png" />
+
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="stylesheet" href="/assets/CSS/base.css">
+  <link rel="stylesheet" href="/assets/CSS/style.css" />
+  <link rel="stylesheet" href="/assets/CSS/contact.css">
+  <link rel="stylesheet" href="/assets/CSS/projectview.css">
+  <link rel="stylesheet" href="/assets/CSS/baseMobile.css">
+  <script src="/assets/JS/base/pageControl.js"></script>
+  <script src="/assets/JS/base/data.js"></script>
+  <script src="/assets/JS/base/base.js"></script>
+</head>
+
+<body class="fram-body-bg-color">
+  <div id="introScreen" class="intro-screen">
+    <div class="intro-content">
+      <h1 class="intro-title">SANJAY CHOUHAN</h1>
+
+      <div class="intro-center">
+        <!-- Infinity Circle Preloader (3 Concentric Pair Ripple) -->
+        <div id="introRingAnim" class="intro-ring-anim">
+          <svg class="infinity-preloader-svg" viewBox="0 0 680 260" xmlns="http://www.w3.org/2000/svg">
+            <g class="infinity-preloader-group">
+              <!-- Left Pair (cx = 160, cy = 130) -->
+              <circle class="preloader-circle preloader-circle-outer" cx="160" cy="130" r="118" style="--delay: 0.00s;"></circle>
+              <circle class="preloader-circle preloader-circle-inner" cx="160" cy="130" r="95" style="--delay: 0.15s;"></circle>
+
+              <!-- Center Pair (cx = 340, cy = 130) -->
+              <circle class="preloader-circle preloader-circle-outer" cx="340" cy="130" r="118" style="--delay: 0.30s;"></circle>
+              <circle class="preloader-circle preloader-circle-inner" cx="340" cy="130" r="95" style="--delay: 0.45s;"></circle>
+
+              <!-- Right Pair (cx = 520, cy = 130) -->
+              <circle class="preloader-circle preloader-circle-outer" cx="520" cy="130" r="118" style="--delay: 0.60s;"></circle>
+              <circle class="preloader-circle preloader-circle-inner" cx="520" cy="130" r="95" style="--delay: 0.75s;"></circle>
+            </g>
+          </svg>
+        </div>
+
+        <!-- Circular Enter Button -->
+        <button id="enterBtn" class="intro-enter-btn">
+          <span class="enter-text">Enter</span>
+        </button>
+      </div>
+
+      <p class="intro-title">BACKEND DEVELOPER &amp; FULL-STACK ENGINEER</p>
+    </div>
+  </div>
+  <div id="nav-progress-bar"></div>
+  <div id="cursor-outline"></div>
+  <div id="cursor-dot"></div>
+  <div class="container" id="lodingConatiner">
+    <div class="first">
+      <h1 class="head" id="counter">000</h1>
+    </div>
+
+    <div class="second">
+      <div class="loaddiv">
+        <div class="loader" id="loader"></div>
+        <div class="loader2"></div>
+      </div>
+
+    </div>
+
+  </div>
+   <div class="mp-wrap">
+    <div class="mp-card" id="mp-card" title="Click to Play / Pause Sound">
+      <audio id="bg-audio" src="/assets/audio/sound.mp3" loop preload="auto"></audio>
+
+      <!-- Album art / image -->
+      <div class="mp-img" id="mp-img">
+        <div class="mp-img-inner">
+          <img src="/assets/sanjay.jpg" alt="Sanjay Chouhan" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">
+        </div>
+        <div class="mp-control-overlay" id="mp-control-overlay">
+          <span class="mp-icon" id="mp-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="white">
+              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+          </span>
+        </div>
+      </div>
+
+      <div class="mp-info">
+
+        <!-- Music name scrolling text -->
+        <div class="mp-title-wrap">
+          <span class="mp-title" id="mp-title">Sanjay Chouhan — Background Sound</span>
+        </div>
+
+        <!-- Progress bar -->
+        <div class="mp-progress-row">
+          <div class="mp-dot" id="mp-dot"></div>
+          <div class="mp-progress-bg">
+            <div class="mp-progress-fill" id="mp-progress-fill"></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>

@@ -1,0 +1,198 @@
+@media screen and (max-width:420px) {
+
+    .laptop{
+        display: none;
+    }
+    .mobile{
+        display: block;
+    }
+    .no-scroll {
+        overflow: hidden !important;
+        height: 100svh;
+    }
+
+    html.no-scroll {
+        overflow: hidden !important;
+        height: 100svh;
+    }
+
+    .ringOverlay {
+        display: none;
+    }
+
+    .container {
+        width: 100svw;
+        height: 100svh;
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+
+    .first,
+    .second {
+        width: 100%;
+
+    }
+
+    .first {
+        height: 40%;
+    }
+
+    .second {
+        justify-content: center;
+        align-items: end;
+        width: 100%;
+        height: 60%;
+    }
+
+    .loaddiv {
+        position: static;
+        transform: translate(0, 0);
+    }
+
+    @keyframes stareate {
+        0% {
+
+            transform: rotate(0deg);
+        }
+
+        100% {
+
+            transform: translate(37%, -255%) rotate(90deg);
+        }
+
+    }
+
+    @keyframes mkddy {
+        0% {
+            transform: rotate(0deg);
+            background-color: transparent;
+        }
+
+        100% {
+            background-color: transparent;
+            transform: translate(-20%, 105%);
+
+        }
+    }
+
+    @keyframes scalup {
+        0% {
+            transform: translate(37%, -255%) rotate(90deg);
+        }
+
+        100% {
+            transform: translate(37%, -255%) rotate(174deg) scale(60);
+        }
+    }
+
+    .mainarea {
+        gap: 40px;
+        flex-direction: column;
+    }
+
+    #main {
+        overflow: hidden;
+    }
+
+    #profile {
+        width: 100%;
+        position: static;
+    }
+
+    #profile .profile-conatiner {
+        width: 100%;
+    }
+
+    #content {
+        width: 100%;
+    }
+
+    #content .content-conatiner {
+        width: 100%;
+    }
+
+    #content .content-conatiner .headingDiv {
+        text-align: center;
+    }
+
+    #content .content-conatiner .headingDiv h1,
+    #contact .headingDiv h1 {
+        font-size: 3em;
+    }
+
+    #content .content-conatiner .deatilsDiv {
+        width: 100%;
+    }
+
+    #content .content-conatiner .deatilsDiv .details .number {
+        font-size: 3.1em;
+    }
+
+    #content .content-conatiner .deatilsDiv .details .text {
+        text-align: center;
+        width: 100%;
+        font-size: 16px;
+    }
+
+    #content .content-conatiner .introdiv {
+        width: 100%;
+        text-align: center;
+    }
+
+    #content .content-conatiner .introdiv p {
+        text-align: center;
+    }
+
+    #content .content-conatiner .activebutton,
+    #content .main-conatiner-viewFile .activebutton {
+        width: 100%;
+    }
+
+    #content .content-conatiner .activebutton .contact-btn-div,
+    #content .main-conatiner-viewFile .activebutton .contact-btn-div {
+        width: 45%;
+    }
+
+
+    /*------------ project section start----------- */
+    #recentProject,
+    #UsedTools,
+    #clientReview ,
+    #Perspectives,
+    #collaborate,
+    #contact,
+    #faquestion{
+        width: 100%;
+    }
+
+    #recentProject .project-heading h2,
+    #UsedTools .headingDiv .project-heading h2,
+    #clientReview .headingDiv .clientReview-heading h3,
+    #Perspectives .project-heading h2,
+    #faquestion .headingDiv h2 {
+        font-size: 40px;
+        text-align: center;
+    }
+    #contact .headingDiv h1{
+        text-align: center;
+    }
+    #collaborate .collaborate-head-part .collaborate-left-head-part h3{
+        font-size: 40px;
+    }
+
+    #recentProject .project-conatiner .project-grid-wrapper,
+    #UsedTools .tool-conatiner .tool-wrapper,
+    .card-conatiner .card-grid-wrapper {
+        grid-template-columns: 100%;
+    }
+
+    #collaborate .collaborate-text-content-part p{
+        font-size: 16px;
+    }
+
+    #faquestion .faquestion-div .questionAnswer .answer p {
+    font-size: 15px;}
+    #faquestion .faquestion-div .questionAnswer.active{
+    height: 180px;
+}
+}
