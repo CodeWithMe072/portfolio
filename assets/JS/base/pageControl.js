@@ -166,23 +166,26 @@ let bodyHtml = `
               <h2 id="name" class="name">Sanjay chouhan</h2>
               <span>Backend Developer & Full-Stack Engineer Hisar, India</span>
               <div class="socialMedia-icons">
-                <a href="#" class="navanchor icon">
+                <a href="https://dribbble.com" target="_blank" rel="noopener" class="navanchor icon" title="Dribbble">
+                  <div class="navbg"></div>
                   <div class="achoerdiv icondiv">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                       stroke="rgb(255, 255, 255)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                      style="width: 70%; height: 70%">
+                      style="width: 60%; height: 60%">
                       <circle cx="12" cy="12" r="10"></circle>
                       <path
                         d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32">
                       </path>
                     </svg>
                   </div>
+                  <div class="navTitle">Dribbble</div>
                 </a>
-                <a href="#" class="navanchor icon">
+                <a href="https://github.com" target="_blank" rel="noopener" class="navanchor icon" title="GitHub">
+                  <div class="navbg"></div>
                   <div class="achoerdiv icondiv">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                       stroke="rgb(255, 255, 255)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                      style="width: 70%; height: 70%">
+                      style="width: 60%; height: 60%">
                       <g>
                         <path
                           d="M9.096 21.25v-3.146a3.33 3.33 0 0 1 .758-2.115c-3.005-.4-5.28-1.859-5.28-5.798c0-1.666 1.432-3.89 1.432-3.89c-.514-1.13-.5-3.084.06-3.551c0 0 1.95.175 3.847 1.75c1.838-.495 3.764-.554 5.661 0c1.897-1.575 3.848-1.75 3.848-1.75c.558.467.573 2.422.06 3.551c0 0 1.432 2.224 1.432 3.89c0 3.94-2.276 5.398-5.28 5.798a3.33 3.33 0 0 1 .757 2.115v3.146" />
@@ -191,37 +194,44 @@ let bodyHtml = `
                       </g>
                     </svg>
                   </div>
+                  <div class="navTitle">GitHub</div>
                 </a>
-                <a href="#" class="navanchor icon">
+                <a href="https://linkedin.com" target="_blank" rel="noopener" class="navanchor icon" title="LinkedIn">
+                  <div class="navbg"></div>
                   <div class="achoerdiv icondiv">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 14 14" fill="none"
                       stroke="rgb(255, 255, 255)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
-                      style="width: 70%; height: 70%">
+                      style="width: 60%; height: 60%">
                       <path
                         d="M3.574 1.767a1.316 1.316 0 0 1-1.287 1.326A1.346 1.346 0 0 1 .99 1.767A1.326 1.326 0 0 1 2.287.5a1.316 1.316 0 0 1 1.287 1.267M1.129 5.449c0-.762.485-.643 1.158-.643c.673 0 1.148-.119 1.148.643v7.424c0 .772-.485.614-1.148.614c-.663 0-1.158.158-1.158-.614zm4.306.001c0-.426.158-.585.405-.634c.248-.05 1.099 0 1.396 0c.297 0 .416.485.406.851a2.485 2.485 0 0 1 2.217-.99a2.97 2.97 0 0 1 3.148 3.098v5.068c0 .772-.475.614-1.149.614c-.673 0-1.148.158-1.148-.614V8.884A1.425 1.425 0 0 0 9.206 7.34A1.435 1.435 0 0 0 7.74 8.914v3.959c0 .772-.485.614-1.158.614c-.673 0-1.148.158-1.148-.614V5.449Z" />
                     </svg>
                   </div>
+                  <div class="navTitle">LinkedIn</div>
                 </a>
-                <a href="#" class="navanchor icon">
+                <a href="https://instagram.com" target="_blank" rel="noopener" class="navanchor icon" title="Instagram">
+                  <div class="navbg"></div>
                   <div class="achoerdiv icondiv">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                       stroke="rgb(255, 255, 255)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                      style="width: 70%; height: 70%">
+                      style="width: 60%; height: 60%">
                       <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
                       <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
                       <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
                     </svg>
                   </div>
+                  <div class="navTitle">Instagram</div>
                 </a>
-                <a href="#" class="navanchor icon">
+                <a href="mailto:contact@sanjaychouhan.dev" class="navanchor icon" title="Email">
+                  <div class="navbg"></div>
                   <div class="achoerdiv icondiv">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                       stroke="rgb(255, 255, 255)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                      style="width: 70%; height: 70%">
+                      style="width: 60%; height: 60%">
                       <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                       <polyline points="22,6 12,13 2,6"></polyline>
                     </svg>
                   </div>
+                  <div class="navTitle">Email</div>
                 </a>
               </div>
             </div>
@@ -444,24 +454,34 @@ function playBackgroundAudio() {
     const card = document.getElementById("mp-card");
     const icon = document.getElementById("mp-icon");
 
-    if (audio) {
-        audio.muted = false;
-        audio.currentTime = 0; // Starts song from beginning right as site reveals!
-        audio.volume = 1;
-        if (typeof broadcastAudioStart === "function") broadcastAudioStart();
-        audio.play().then(() => {
-            if (card) {
-                card.classList.remove("paused");
-                card.classList.add("playing");
-            }
-            if (icon) {
-                const pauseIconSVG = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="white"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>`;
-                icon.innerHTML = pauseIconSVG;
-            }
-        }).catch(err => {
-            console.log("Audio play error after loading:", err);
-        });
+    if (!audio) return;
+
+    // Check if tab is active when audio tries to play for the first time
+    if (document.hidden || document.visibilityState !== "visible") {
+        if (typeof audioPausedByTabSwitch !== "undefined") {
+            audioPausedByTabSwitch = true;
+        } else {
+            window.audioPausedByTabSwitch = true;
+        }
+        return;
     }
+
+    audio.muted = false;
+    audio.currentTime = 0; // Starts song from beginning right as site reveals!
+    audio.volume = 1;
+    if (typeof broadcastAudioStart === "function") broadcastAudioStart();
+    audio.play().then(() => {
+        if (card) {
+            card.classList.remove("paused");
+            card.classList.add("playing");
+        }
+        if (icon) {
+            const pauseIconSVG = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="white"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>`;
+            icon.innerHTML = pauseIconSVG;
+        }
+    }).catch(err => {
+        console.log("Audio play error after loading:", err);
+    });
 }
 
 function initIntroScreen() {

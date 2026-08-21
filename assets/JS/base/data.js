@@ -125,7 +125,9 @@ const tools = {
       "I use Python to build backend logic, authentication workflows, API endpoints, and automation scripts. It helps me implement business rules efficiently across large systems.",
     why:
       "Reliable, developer-friendly, and powerful enough for enterprise-level backend systems.",
-    image: "/assets/images/tools/Python-logo.png"
+    invert: false,
+    revert: false,
+    image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
   },
 
   django: {
@@ -137,8 +139,9 @@ const tools = {
       "I use Django to build full backend architectures, admin dashboards, database layers, and API systems for real-world products. It helps enforce clean architecture and scalability.",
     why:
       "It's secure, scalable, and dramatically speeds up backend development.",
-    image: "/assets/images/tools/django-logo.png"
-
+    invert: true,
+    revert: true,
+    image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg"
   },
 
   DRF: {
@@ -150,7 +153,9 @@ const tools = {
       "I use DRF to develop production-grade APIs for dashboards, e-commerce systems, and mobile apps with clean request/response handling.",
     why:
       "It provides a complete toolkit for secure and scalable API development.",
-    image: "/assets/images/tools/Django-REST-logo.png"
+    invert: true,
+    revert: false,
+    image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/djangorest/djangorest-original.svg"
   },
 
   nodejs: {
@@ -162,7 +167,9 @@ const tools = {
       "I use Node.js to build lightweight REST APIs, microservices, and real-time backend processes that require non-blocking operations.",
     why:
       "Its speed and event-driven nature make it great for real-time and high-throughput systems.",
-    image: "/assets/images/tools/Node.js_logo.png"
+    invert: false,
+    revert: false,
+    image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
   },
 
   express: {
@@ -174,7 +181,9 @@ const tools = {
       "I use Express to create structured API endpoints, authentication layers, middleware pipelines, and microservices.",
     why:
       "Simple, fast, and highly customizable — perfect for modular backend development.",
-    image: "/assets/images/tools/Expressjs-logo.png"
+    invert: true,
+    revert: true,
+    image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg"
   },
 
   websockets: {
@@ -186,7 +195,9 @@ const tools = {
       "I use WebSockets to build real-time features like chat systems, notifications, live dashboards, and instant data updates.",
     why:
       "Provides low-latency communication and a seamless real-time experience.",
-    image: "/assets/images/tools/Python-logo.png"
+    invert: true,
+    revert: true,
+    image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/socketio/socketio-original.svg"
   },
 
   mysql: {
@@ -198,7 +209,9 @@ const tools = {
       "I design relational schemas, write optimized queries, and manage data operations for backend functionality.",
     why:
       "Stable, efficient, and widely supported across all platforms.",
-    image: "/assets/images/tools/mysql-5-logo.png"
+    invert: false,
+    revert: false,
+    image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg"
   },
 
   postgresql: {
@@ -210,7 +223,9 @@ const tools = {
       "I use PostgreSQL for large-scale applications requiring complex relational models and high-speed querying.",
     why:
       "Provides excellent performance and reliability for enterprise applications.",
-    image: "/assets/images/tools/Postgresql_.png"
+    invert: false,
+    revert: false,
+    image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg"
   },
 
   mongodb: {
@@ -222,7 +237,9 @@ const tools = {
       "I use MongoDB for dashboards, analytics tools, and systems that require unstructured or rapidly changing data.",
     why:
       "Fast, scalable, and perfect for modern applications with fluid data models.",
-    image: "/assets/images/tools/MongoDB_Logo.png"
+    invert: false,
+    revert: false,
+    image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg"
   },
 
   redis: {
@@ -234,7 +251,9 @@ const tools = {
       "I use Redis for caching API responses, managing sessions, rate-limiting, and speeding up heavy backend operations.",
     why:
       "Massively improves performance and reduces load on primary databases.",
-    image: "/assets/images/tools/radis-logo.png"
+    invert: false,
+    revert: false,
+    image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg"
   },
 
   html: {
@@ -246,7 +265,9 @@ const tools = {
       "I build clean, accessible page structures before adding styling or backend-driven dynamic content.",
     why:
       "Provides the backbone for every user interface.",
-    image: "/assets/images/tools/HTML5_logo.png"
+    invert: false,
+    revert: false,
+    image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
   },
 
   css: {
@@ -258,7 +279,9 @@ const tools = {
       "I use CSS to create modern UI designs, responsive grids, flex layouts, and smooth transitions.",
     why:
       "Transforms basic structure into a polished, user-friendly interface.",
-    image: "/assets/images/tools/CSS3_logo.png"
+    invert: false,
+    revert: false,
+    image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"
   },
 
   javascript: {
@@ -270,7 +293,9 @@ const tools = {
       "I build dynamic components, handle API calls, manipulate DOM elements, and manage frontend logic.",
     why:
       "Essential for building interactive, modern websites.",
-    image: "/assets/images/tools/javascript-logo.png"
+    invert: false,
+    revert: false,
+    image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
   },
 
   git: {
@@ -282,7 +307,9 @@ const tools = {
       "I manage project versions, create branches, resolve conflicts, and maintain clean development workflows.",
     why:
       "Critical for team collaboration and safe code management.",
-    image: "/assets/images/tools/git-logo.png"
+    invert: false,
+    revert: false,
+    image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"
   },
 
   github: {
@@ -294,7 +321,9 @@ const tools = {
       "I host my projects, collaborate via PRs, manage documentation, and track tasks.",
     why:
       "Central platform for code storage and developer collaboration.",
-    image: "/assets/images/tools/github-logo.png"
+    invert: true,
+    revert: true,
+    image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
   },
 
   aws: {
@@ -306,7 +335,9 @@ const tools = {
       "I deploy backend systems, configure servers, manage databases, and handle security & environment setup.",
     why:
       "Highly scalable, reliable, and suitable for enterprise deployments.",
-    image: "/assets/images/tools/AWS_logo.png"
+    invert: false,
+    revert: false,
+    image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg"
   },
 
   render: {
@@ -318,7 +349,9 @@ const tools = {
       "I deploy Django/Node projects, manage environment variables, and run production builds.",
     why:
       "Fast, developer-friendly, and easy for small-to-medium projects.",
-    image: "/assets/images/tools/render-logo.png"
+    invert: true,
+    revert: true,
+    image: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/render.svg"
   },
 
   railway: {
@@ -330,7 +363,9 @@ const tools = {
       "I deploy APIs, host databases, and manage environments with automated builds and logs.",
     why:
       "Extremely simple and efficient for rapid releases.",
-    image: "/assets/images/tools/Python-logo.png"
+    invert: true,
+    revert: true,
+    image: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/railway.svg"
   },
 
   ngrok: {
@@ -342,7 +377,9 @@ const tools = {
       "I test webhooks, share API demos with clients, and debug backend flows without deployment.",
     why:
       "Perfect for development, integration testing, and client previews.",
-    image: "/assets/images/tools/Python-logo.png"
+    invert: true,
+    revert: true,
+    image: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/ngrok.svg"
   },
 
   postman: {
@@ -354,7 +391,9 @@ const tools = {
       "I test requests, inspect headers, simulate authentication, and document API workflows.",
     why:
       "Critical for reliable and accurate backend development.",
-    image: "/assets/images/tools/Postman-logo.png"
+    invert: false,
+    revert: false,
+    image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg"
   },
 
   vscode: {
@@ -366,7 +405,9 @@ const tools = {
       "I write backend, frontend, and DevOps code with extensions for debugging and formatting.",
     why:
       "Boosts productivity with powerful tools and clean workflow.",
-    image: "/assets/images/tools/Visual_Studio_Code.png"
+    invert: false,
+    revert: false,
+    image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg"
   },
 
   npm: {
@@ -378,7 +419,9 @@ const tools = {
       "I handle dependencies, manage scripts, and configure JS-based projects.",
     why:
       "Core tool for any JavaScript development workflow.",
-    image: "/assets/images/tools/Npm-logo.png"
+    invert: false,
+    revert: false,
+    image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/npm/npm-original-wordmark.svg"
   },
 
   chromeDevTools: {
@@ -390,7 +433,9 @@ const tools = {
       "I inspect elements, debug JS issues, verify API calls, and optimize page performance.",
     why:
       "Essential for refining UI behavior and frontend debugging.",
-    image: "/assets/images/tools/Python-logo.png"
+    invert: false,
+    revert: false,
+    image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/chrome/chrome-original.svg"
   }
 };
 

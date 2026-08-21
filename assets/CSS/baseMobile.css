@@ -1,16 +1,153 @@
-@media screen and (max-width:420px) {
+/* ==========================================================================
+   SANJAY CHOUHAN PORTFOLIO - TABLET & MOBILE RESPONSIVE STYLESHEET
+   Matching User Custom Responsive Rules for Home & SPA Views
+   ========================================================================== */
 
-    .laptop{
-        display: none;
-    }
-    .mobile{
-        display: block;
-    }
-    .no-scroll {
-        overflow: hidden !important;
-        height: 100svh;
+/* --------------------------------------------------------------------------
+   1. TABLET STYLES (769px to 1024px)
+   -------------------------------------------------------------------------- */
+@media screen and (max-width: 1024px) {
+
+    /* Container & Root Shell */
+    .container {
+        width: 100%;
+        padding: 0 24px;
     }
 
+    #header {
+        position: fixed;
+        top: 16px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1000000;
+        width: 90%;
+        max-width: 580px;
+    }
+
+    #nav {
+        width: 100%;
+        padding: 6px 14px;
+    }
+
+    .navItems {
+        gap: 10px;
+        justify-content: space-between;
+    }
+
+    .mainarea {
+        width: 90%;
+        max-width: 100%;
+        flex-direction: column;
+        gap: 35px;
+        padding-top: 100px;
+    }
+
+    #profile {
+        width: 100%;
+        position: relative;
+        top: 0;
+    }
+
+    #profile .profile-conatiner {
+        width: 100%;
+        max-width: 100%;
+        padding: 30px;
+        border-radius: 24px;
+    }
+
+    #content {
+        width: 100%;
+    }
+
+    #content .content-conatiner {
+        width: 100%;
+        gap: 25px;
+    }
+
+    /* Hero Section */
+    #content .content-conatiner .headingDiv h1 {
+        font-size: 3em;
+        line-height: 1.15;
+    }
+
+    #content .content-conatiner .introdiv {
+        width: 100%;
+    }
+
+    #content .content-conatiner .deatilsDiv {
+        width: 100%;
+        gap: 20px;
+    }
+
+    #content .content-conatiner .deatilsDiv .details .number {
+        font-size: 3.2em;
+    }
+
+    #content .content-conatiner .activebutton {
+        width: 100%;
+        flex-direction: row;
+        align-items: center;
+        gap: 20px;
+    }
+
+    /* Brand Slider Text */
+    #content .content-conatiner .brandslider .brandtext {
+        color: var(--token-white-gray-color);
+        font-size: 18px;
+        font-weight: 500;
+        text-align: center;
+    }
+
+    /* Grids & Cards */
+    #recentProject,
+    #UsedTools,
+    #clientReview,
+    #Perspectives,
+    #experiences,
+    #collaborate,
+    #contact,
+    #faquestion {
+        width: 100%;
+    }
+
+    #recentProject .project-conatiner .project-grid-wrapper {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    #UsedTools .tool-conatiner .tool-wrapper {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+
+    .card-conatiner .card-grid-wrapper {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    #content .main-conatiner-viewFile {
+        width: 100%;
+    }
+
+    #content .main-conatiner-viewFile .projectIdea .ideaCard-grid {
+        grid-template-columns: 100%;
+        gap: 20px;
+    }
+
+    /* Music Player Widget */
+    .mp-wrap {
+        bottom: 20px;
+        right: 20px;
+        z-index: 99999;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   2. MOBILE STYLES (up to 768px)
+   -------------------------------------------------------------------------- */
+@media screen and (max-width: 768px) {
+
+    .no-scroll,
     html.no-scroll {
         overflow: hidden !important;
         height: 100svh;
@@ -20,80 +157,51 @@
         display: none;
     }
 
-    .container {
-        width: 100svw;
-        height: 100svh;
-        flex-direction: column-reverse;
-        align-items: center;
+    /* Fixed Navigation Header Dock */
+    #header {
+        position: fixed;
+        top: 12px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 92%;
+        max-width: 440px;
+        z-index: 1000000;
     }
 
-    .first,
-    .second {
+    #nav {
         width: 100%;
-
+        padding: 5px 8px;
+        border-radius: 10px;
+        background-color: rgba(30, 30, 32, 0.95);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
     }
 
-    .first {
-        height: 40%;
+    .navItems {
+        gap: 4px;
+        justify-content: space-around;
     }
 
-    .second {
-        justify-content: center;
-        align-items: end;
-        width: 100%;
-        height: 60%;
+    .navanchor {
+        padding: 8px 10px;
+        border-radius: 10px;
     }
 
-    .loaddiv {
-        position: static;
-        transform: translate(0, 0);
+    .navTitle {
+        display: none !important;
     }
 
-    @keyframes stareate {
-        0% {
-
-            transform: rotate(0deg);
-        }
-
-        100% {
-
-            transform: translate(37%, -255%) rotate(90deg);
-        }
-
-    }
-
-    @keyframes mkddy {
-        0% {
-            transform: rotate(0deg);
-            background-color: transparent;
-        }
-
-        100% {
-            background-color: transparent;
-            transform: translate(-20%, 105%);
-
-        }
-    }
-
-    @keyframes scalup {
-        0% {
-            transform: translate(37%, -255%) rotate(90deg);
-        }
-
-        100% {
-            transform: translate(37%, -255%) rotate(174deg) scale(60);
-        }
-    }
-
+    /* Main Area Container */
     .mainarea {
-        gap: 40px;
+        width: 90%;
+        display: flex;
         flex-direction: column;
+        gap: 30px;
+        padding-top: 75px;
     }
 
-    #main {
-        overflow: hidden;
-    }
-
+    /* Profile Card */
     #profile {
         width: 100%;
         position: static;
@@ -101,98 +209,475 @@
 
     #profile .profile-conatiner {
         width: 100%;
+        padding: 28px 20px;
+        border-radius: 24px;
+        background-color: var(--token-gray-bg);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
     }
 
+    #profile .profile-conatiner .profile-content {
+        width: 100%;
+        padding: 0;
+        gap: 16px;
+    }
+
+    #profile .profile-conatiner .profile-content .profile-image {
+        width: 100px;
+        height: 100px;
+        border-radius: 20px;
+    }
+
+    #profile .profile-conatiner .profile-content .profile-desc .name {
+        font-size: 26px;
+        font-weight: 700;
+        margin-bottom: 4px;
+        text-align: center;
+    }
+
+    #profile .profile-conatiner .profile-content .profile-desc span {
+        font-size: 14px;
+        color: var(--token-white-gray-color);
+        margin: 4px 0 16px 0;
+        font-weight: 500;
+        text-align: center;
+    }
+
+    #profile .profile-conatiner .profile-content .profile-desc .socialMedia-icons {
+        margin: 16px 0;
+        justify-content: center;
+        gap: 12px;
+    }
+
+    #profile .profile-conatiner .contact-btn-div {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    #profile .profile-conatiner .contact-btn-div .contact-btn {
+        width: 100%;
+        height: 48px;
+        border-radius: 12px;
+        font-size: 15px;
+        font-weight: 600;
+    }
+
+    /* Content Container */
     #content {
         width: 100%;
     }
 
     #content .content-conatiner {
         width: 100%;
+        gap: 25px;
     }
 
-    #content .content-conatiner .headingDiv {
+    /* Hero Heading & Subtitle */
+    #content .content-conatiner .headingDiv h1 {
+        font-size: 2.3em;
+        line-height: 1.15;
+        letter-spacing: -0.5px;
         text-align: center;
-    }
-
-    #content .content-conatiner .headingDiv h1,
-    #contact .headingDiv h1 {
-        font-size: 3em;
-    }
-
-    #content .content-conatiner .deatilsDiv {
-        width: 100%;
-    }
-
-    #content .content-conatiner .deatilsDiv .details .number {
-        font-size: 3.1em;
-    }
-
-    #content .content-conatiner .deatilsDiv .details .text {
-        text-align: center;
-        width: 100%;
-        font-size: 16px;
+        color: #ffffff;
     }
 
     #content .content-conatiner .introdiv {
         width: 100%;
-        text-align: center;
     }
 
     #content .content-conatiner .introdiv p {
+        font-size: 15px;
+        line-height: 1.55;
+        text-align: center;
+        color: var(--token-white-gray-color);
+    }
+
+    /* Stats Counter Row */
+    #content .content-conatiner .deatilsDiv {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 12px;
+        margin: 10px 0;
+    }
+
+    #content .content-conatiner .deatilsDiv .details {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #content .content-conatiner .deatilsDiv .details .number {
+        font-size: 2.3em;
+        font-weight: 700;
+        letter-spacing: -1.5px;
+        line-height: 1;
+        color: #ffffff;
+    }
+
+    #content .content-conatiner .deatilsDiv .details .text {
+        font-size: 11px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: var(--token-white-gray-color);
+        margin-top: 6px;
+        width: 100%;
+        text-align: center;
+        line-height: 1.25;
+    }
+
+    /* Action Buttons Row */
+    #content .content-conatiner .activebutton {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+        margin: 10px 0;
+    }
+
+    #content .content-conatiner .activebutton .contact-btn-div {
+        width: auto;
+    }
+
+    #content .content-conatiner .activebutton .contact-btn-div .contact-btn {
+        width: 177px;
+        height: 50px;
+        border-radius: 10px;
+        font-size: 14px;
+        font-weight: 600;
+        padding: 0 18px;
+    }
+
+    #content .content-conatiner .activebutton .worktext {
+        width: auto;
+        font-size: 15px;
+        font-weight: 600;
+        color: #ffffff;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 0;
+    }
+
+    /* Section Headings */
+    #recentProject .project-heading h2,
+    #UsedTools .headingDiv .project-heading h2,
+    #clientReview .headingDiv .clientReview-heading h3,
+    #Perspectives .project-heading h2,
+    #faquestion .headingDiv h2,
+    #contact .headingDiv h1,
+    #experiences .project-heading h2,
+    #collaborate .collaborate-head-part .collaborate-left-head-part h3 {
+        font-size: 26px;
+        font-weight: 700;
+        line-height: 1.15;
         text-align: center;
     }
 
-    #content .content-conatiner .activebutton,
-    #content .main-conatiner-viewFile .activebutton {
+    #recentProject .project-heading h3 {
+        font-size: 1.6em;
+        text-align: center;
+    }
+
+    /* Recent Projects Cards - Single Column */
+    #recentProject {
         width: 100%;
     }
 
-    #content .content-conatiner .activebutton .contact-btn-div,
-    #content .main-conatiner-viewFile .activebutton .contact-btn-div {
-        width: 45%;
+    #recentProject .project-conatiner .project-grid-wrapper {
+        grid-template-columns: 100%;
+        gap: 20px;
     }
 
+    /* Technical Tools Cards - Single Column */
+    #UsedTools {
+        width: 100%;
+    }
 
-    /*------------ project section start----------- */
-    #recentProject,
-    #UsedTools,
-    #clientReview ,
+    #UsedTools .tool-conatiner .tool-wrapper {
+        grid-template-columns: 100%;
+        gap: 12px;
+    }
+
+    #UsedTools .tool-conatiner .tool-wrapper .tool {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 14px 18px;
+        border-radius: 16px;
+        gap: 16px;
+        background-color: var(--token-gray-bg);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    /* Testimonials & Experiences Cards */
+    #clientReview,
     #Perspectives,
-    #collaborate,
-    #contact,
-    #faquestion{
+    #experiences {
         width: 100%;
+    }
+
+    .card-conatiner .card-grid-wrapper {
+        grid-template-columns: 100%;
+        gap: 16px;
+    }
+
+    /* Collaborate Banner Card */
+    #collaborate {
+        width: 100%;
+        padding: 26px 20px;
+        border-radius: 24px;
+        background-color: var(--token-gray-bg);
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    #collaborate .collaborate-head-part {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+
+    #collaborate .collaborate-left-head-part {
+        width: 75%;
+    }
+
+    #collaborate .collaborate-left-head-part h3 {
+        font-size: 26px;
+        font-weight: 700;
+        line-height: 1.15;
+        text-align: center;
+    }
+
+    #collaborate .collaborate-right-head-part {
+        width: 25%;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    #collaborate .collaborate-right-head-part .arrow {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background-color: var(--token-purple-bg);
+    }
+
+    #collaborate .collaborate-text-content-part {
+        width: 100%;
+    }
+
+    #collaborate .collaborate-text-content-part p {
+        font-size: 14px;
+        line-height: 1.55;
+        color: var(--token-white-gray-color);
+        text-align: center;
+    }
+
+    /* FAQ Accordion Section */
+    #faquestion {
+        width: 100%;
+    }
+
+    #faquestion .faquestion-div .questionAnswer {
+        height: auto;
+        min-height: 60px;
+        padding: 16px 18px;
+        border-radius: 14px;
+    }
+
+    #faquestion .faquestion-div .questionAnswer.active {
+        height: auto;
+        min-height: 120px;
+    }
+
+    #faquestion .faquestion-div .questionAnswer .question p {
+        font-size: 15px;
+        font-weight: 600;
+    }
+
+    #faquestion .faquestion-div .questionAnswer .answer p {
+        font-size: 14px;
+        line-height: 1.45;
+    }
+
+    /* Contact Page Form */
+    #contact {
+        width: 100%;
+    }
+
+    #contact .formDiv {
+        padding: 20px 16px;
+        border-radius: 18px;
+    }
+
+    #contact .formDiv #contactForm .forminput input,
+    #contact .formDiv #contactForm .forminput textarea {
+        font-size: 14px;
+        border-radius: 10px;
+    }
+
+    #contact .formDiv #contactForm input[type='submit'] {
+        height: 48px;
+        width: 100%;
+        border-radius: 12px;
+        font-size: 15px;
+    }
+
+    /* Project Detail View Page */
+    #content .main-conatiner-viewFile {
+        width: 100%;
+        gap: 20px;
+    }
+
+    #content .main-conatiner-viewFile .project-main-image {
+        cursor: pointer;
+    }
+
+    #content .main-conatiner-viewFile .project-main-image .viewImageCursor,
+    #content .main-conatiner-viewFile .projectAllImages .image .viewImageCursor {
+        display: none !important;
+    }
+
+    #content .main-conatiner-viewFile .project-desc-content .project-name {
+        font-size: 24px;
+    }
+
+    #content .main-conatiner-viewFile .project-desc-content .project-desc {
+        font-size: 15px;
+        margin-top: 15px;
+    }
+
+    #content .main-conatiner-viewFile .projectIdea .ideaCard-grid {
+        grid-template-columns: 100%;
+        gap: 15px;
+    }
+
+    #content .main-conatiner-viewFile .projectIdea .ideaCard-grid .ideaCard {
+        padding: 18px;
+    }
+
+    /* Floating Circular Audio Player Button in Bottom Right Corner (Mobile) */
+    .mp-wrap {
+        position: fixed;
+        bottom: 18px;
+        right: 18px;
+        z-index: 999999;
+        width: auto;
+        max-width: none;
+    }
+
+    .mp-card {
+        padding: 0;
+        width: 54px;
+        height: 54px;
+        border-radius: 50%;
+        background: transparent;
+        border: none;
+        box-shadow: 0 6px 24px rgba(0, 0, 0, 0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .mp-info {
+        display: none !important;
+    }
+
+    .mp-img {
+        width: 54px;
+        height: 54px;
+        border-radius: 50%;
+        border: 2px solid rgba(145, 75, 241, 0.95);
+        box-shadow: 0 0 16px rgba(145, 75, 241, 0.5);
+        margin: 0;
+    }
+
+    /* Intro Preloader Screen */
+    .intro-title {
+        font-size: 19px;
+        letter-spacing: 0.12em;
+    }
+
+    .intro-center {
+        max-width: 100%;
+        height: 190px;
+    }
+
+    .infinity-preloader-svg {
+        max-width: 100%;
+    }
+
+    .intro-enter-btn {
+        width: 105px;
+        height: 105px;
+    }
+
+    .intro-enter-btn .enter-text {
+        font-size: 15px;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   3. SMALL MOBILE PHONES (up to 480px)
+   -------------------------------------------------------------------------- */
+@media screen and (max-width: 480px) {
+
+    .laptop {
+        display: none;
+    }
+
+    .mobile {
+        display: block;
+    }
+
+    #content .content-conatiner .headingDiv h1 {
+        font-size: 2.0em;
+        text-align: center;
+    }
+
+    #content .content-conatiner .deatilsDiv .details .number {
+        font-size: 2.0em;
+    }
+
+    #content .content-conatiner .activebutton {
+        flex-direction: row;
+        gap: 12px;
+    }
+
+    #content .content-conatiner .activebutton .contact-btn-div .contact-btn {
+        width: 177px;
+        height: 50px;
+        font-size: 13px;
+        padding: 0px 21px;
     }
 
     #recentProject .project-heading h2,
     #UsedTools .headingDiv .project-heading h2,
     #clientReview .headingDiv .clientReview-heading h3,
     #Perspectives .project-heading h2,
-    #faquestion .headingDiv h2 {
-        font-size: 40px;
+    #faquestion .headingDiv h2,
+    #contact .headingDiv h1,
+    #experiences .project-heading h2,
+    #collaborate .collaborate-head-part .collaborate-left-head-part h3 {
+        font-size: 23px;
         text-align: center;
     }
-    #contact .headingDiv h1{
-        text-align: center;
-    }
-    #collaborate .collaborate-head-part .collaborate-left-head-part h3{
-        font-size: 40px;
-    }
 
-    #recentProject .project-conatiner .project-grid-wrapper,
-    #UsedTools .tool-conatiner .tool-wrapper,
-    .card-conatiner .card-grid-wrapper {
-        grid-template-columns: 100%;
+    .mp-wrap {
+        bottom: 14px;
+        right: 14px;
+        width: auto;
+        max-width: none;
     }
-
-    #collaborate .collaborate-text-content-part p{
-        font-size: 16px;
-    }
-
-    #faquestion .faquestion-div .questionAnswer .answer p {
-    font-size: 15px;}
-    #faquestion .faquestion-div .questionAnswer.active{
-    height: 180px;
-}
 }

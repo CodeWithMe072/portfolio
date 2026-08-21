@@ -552,6 +552,8 @@ function backgroundHover() {
 
 function showToolTabs() {
     let toolController = document.getElementById("toolController")
+    if (!toolController) return;
+    toolController.innerHTML = '';
     let Allcategorys = Object.keys(tools).map(t => { return tools[t].category })
     let categorys = []
     Allcategorys.forEach(cat => {
@@ -569,6 +571,7 @@ function showToolTabs() {
 
 function showTabsTool(tab) {
     let toolWrapper = document.getElementById("tool-wrapper")
+    if (!toolWrapper) return;
     toolWrapper.innerHTML = ''
     let Tools = Object.keys(tools)
         .filter(t => tools[t].category === tab)
@@ -578,10 +581,12 @@ function showTabsTool(tab) {
         }));
     console.log(Tools)
     Tools.forEach((t, tidx) => {
+        const isInvert = t.invert ? "invert" : "";
+        const isRevert = t.revert ? "revert" : "";
         toolWrapper.innerHTML += `
      <div class="tool" data-tool="${t.id}" >
-            <div class="tool-image">
-              <img src="${t.image}" alt="">
+            <div class="tool-image ${isInvert} ${isRevert}">
+              <img src="${t.image}" alt="${t.name}">
             </div>
             <div class="toolNameDesc">
               <span class="toolName">${t.name}</span>

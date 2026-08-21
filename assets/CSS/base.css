@@ -131,9 +131,9 @@ a {
 .loader {
     height: 56px;
     width: 230px;
-    background-color: rgb(145, 75, 2);
+
     position: absolute;
-    /* transform: translate(-50%, -50%); */
+
 }
 
 .loader.active {
@@ -644,17 +644,71 @@ img {
 }
 
 #profile .profile-conatiner .profile-content .profile-desc .socialMedia-icons .icon {
-    padding: 8px 4px;
-    width: 14%;
-    height: 40px;
-}
-
-#profile .profile-conatiner .profile-content .profile-desc .socialMedia-icons .icon .icondiv {
-    width: 80%;
+    position: relative;
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100px;
+    padding: 0;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+#profile .profile-conatiner .profile-content .profile-desc .socialMedia-icons .icon .navbg {
+    position: absolute;
+    inset: 0;
+    background: var(--token-purple-bg);
+    border-radius: 10px;
+    transform: scale(0);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 1;
+}
+
+#profile .profile-conatiner .profile-content .profile-desc .socialMedia-icons .icon:hover .navbg,
+#profile .profile-conatiner .profile-content .profile-desc .socialMedia-icons .icon.hoverActive .navbg {
+    transform: scale(1);
+}
+
+#profile .profile-conatiner .profile-content .profile-desc .socialMedia-icons .icon .icondiv {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+#profile .profile-conatiner .profile-content .profile-desc .socialMedia-icons .icon .icondiv svg {
+    width: 60% !important;
+    height: 60% !important;
+}
+
+#profile .profile-conatiner .profile-content .profile-desc .socialMedia-icons .icon .navTitle {
+    font-size: 11px;
+    font-weight: 600;
+    background: var(--token-gray-bg);
+    color: var(--token-fc7b9f32-7298-428e-bdfb-3530edb2e73a);
+    position: absolute;
+    top: -32px;
+    z-index: 10000;
+    padding: 3px 8px;
+    border-radius: 4px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    white-space: nowrap;
+    pointer-events: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    text-transform: capitalize;
+}
+
+#profile .profile-conatiner .profile-content .profile-desc .socialMedia-icons .icon:hover .navTitle,
+#profile .profile-conatiner .profile-content .profile-desc .socialMedia-icons .icon.hoverActive .navTitle {
+    transform: translateY(0);
+    opacity: 1;
 }
 
 #profile .profile-conatiner .contact-btn-div,

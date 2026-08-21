@@ -238,6 +238,39 @@ document.addEventListener("visibilitychange", () => {
 	}
 });
 
+function toggleAudioPlayback() {
+	const card = document.getElementById("mp-card");
+	const audio = document.getElementById("bg-audio");
+	const icon = document.getElementById("mp-icon");
+
+	if (!card || !audio) return;
+
+	// Do not start playback if tab is hidden/inactive
+	if (document.hidden || document.visibilityState !== "visible") {
+		audioPausedByTabSwitch = true;
+		return;
+	}
+
+	const playIconSVG = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>`;
+	const pauseIconSVG = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="white"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>`;
+
+	if (audio.paused) {
+		if (typeof broadcastAudioStart === "function") broadcastAudioStart();
+		audio.play().then(() => {
+			card.classList.remove("paused");
+			card.classList.add("playing");
+			if (icon) icon.innerHTML = pauseIconSVG;
+		}).catch(err => {
+			console.log("Audio playback deferred or prevented:", err);
+		});
+	} else {
+		audio.pause();
+		card.classList.remove("playing");
+		card.classList.add("paused");
+		if (icon) icon.innerHTML = playIconSVG;
+	}
+}
+
 function initAudioPlayer() {
 	const card = document.getElementById("mp-card");
 	const audio = document.getElementById("bg-audio");
@@ -246,31 +279,10 @@ function initAudioPlayer() {
 	if (!card || !audio) return;
 
 	const playIconSVG = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>`;
-	const pauseIconSVG = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="white"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>`;
-
-	card.classList.add("paused");
-
-	function togglePlay() {
-		if (audio.paused) {
-			broadcastAudioStart();
-			audio.play().then(() => {
-				card.classList.remove("paused");
-				card.classList.add("playing");
-				if (icon) icon.innerHTML = pauseIconSVG;
-			}).catch(err => {
-				console.log("Audio playback deferred or prevented:", err);
-			});
-		} else {
-			audio.pause();
-			card.classList.remove("playing");
-			card.classList.add("paused");
-			if (icon) icon.innerHTML = playIconSVG;
-		}
-	}
 
 	card.onclick = (e) => {
-		e.stopPropagation();
-		togglePlay();
+		if (e) e.stopPropagation();
+		toggleAudioPlayback();
 	};
 
 	audio.onended = () => {
@@ -280,6 +292,22 @@ function initAudioPlayer() {
 			if (icon) icon.innerHTML = playIconSVG;
 		}
 	};
+}
+
+// Global Keyboard Shortcut: Pressing 'm' or 'M' toggles background music play/pause
+// Ensured single registration using window guard flag to prevent duplicate handlers on route transitions
+if (!window.hasAudioKeyShortcutListener) {
+	window.hasAudioKeyShortcutListener = true;
+	document.addEventListener("keydown", (e) => {
+		const activeTag = document.activeElement ? document.activeElement.tagName.toLowerCase() : "";
+		if (activeTag === "input" || activeTag === "textarea" || (document.activeElement && document.activeElement.isContentEditable)) {
+			return;
+		}
+
+		if (e.key === "m" || e.key === "M" || e.code === "KeyM") {
+			toggleAudioPlayback();
+		}
+	});
 }
 
 if (document.readyState === "loading") {

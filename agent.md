@@ -35,7 +35,7 @@ d:\Personal Projects\portfilio\
     ├── CSS/
     │   ├── base.css             # Shell layout, loader, ring overlays, header/nav, profile sidebar styles
     │   ├── style.css            # Primary content section styles & component classes
-    │   ├── baseMobile.css       # Responsive mobile overrides
+    │   ├── baseMobile.css       # Complete responsive overrides for Tablets (769px–1024px), Mobile (up to 768px), and Small Mobile (up to 480px)
     │   ├── contact.css          # Contact form specific styles
     │   └── projectview.css      # Project detail view & modal carousel styles
     │
