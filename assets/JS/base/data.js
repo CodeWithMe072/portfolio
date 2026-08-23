@@ -1,99 +1,10 @@
 const projects = {
-  revo: {
-    id: "revo",
-    title: "Revo",
-    subtitle: "SaaS Framer Template",
-    description:
-      "Revo is a modern and versatile website template crafted for dynamic businesses and creative professionals. It offers a sleek design, strong visual identity, and customizable components to elevate your online presence.",
-
-    services: [
-      {
-        title: "Branding",
-        details: "Logo design, brand strategy, and complete visual identity creation."
-      },
-      {
-        title: "Development",
-        details:
-          "Interactive and high-performance website development with Framer, optimized for smooth user experience."
-      }
-    ],
-
-    images: [
-      "/assets/images/project 2.avif",
-      "/assets/images/project 3.avif",
-      "/assets/images/project1.avif"
-    ],
-
-    tags: ["SaaS", "Branding", "Framer", "UI/UX"],
-    year: 2025,
-    link: "https://seera.framer.website/projects/revo"
-  },
-
-  revo2: {
-    id: "revo2",
-    title: "Revo",
-    subtitle: "SaaS Framer Template",
-    description:
-      "Revo is a modern and versatile website template crafted for dynamic businesses and creative professionals. It offers a sleek design, strong visual identity, and customizable components to elevate your online presence.",
-
-    services: [
-      {
-        title: "Branding",
-        details: "Logo design, brand strategy, and complete visual identity creation."
-      },
-      {
-        title: "Development",
-        details:
-          "Interactive and high-performance website development with Framer, optimized for smooth user experience."
-      }
-    ],
-
-    images: [
-      "/assets/images/project 3.avif",
-      "/assets/images/project1.avif",
-      "/assets/images/project 2.avif"
-    ],
-
-    tags: ["SaaS", "Branding", "Framer", "UI/UX"],
-    year: 2025,
-    link: "https://seera.framer.website/projects/revo"
-  },
-
-  revo3: {
-    id: "revo3",
-    title: "Revo",
-    subtitle: "SaaS Framer Template",
-    description:
-      "Revo is a modern and versatile website template crafted for dynamic businesses and creative professionals. It offers a sleek design, strong visual identity, and customizable components to elevate your online presence.",
-
-    services: [
-      {
-        title: "Branding",
-        details: "Logo design, brand strategy, and complete visual identity creation."
-      },
-      {
-        title: "Development",
-        details:
-          "Interactive and high-performance website development with Framer, optimized for smooth user experience."
-      }
-    ],
-
-    images: [
-      "/assets/images/project1.avif",
-      "/assets/images/project 2.avif",
-      "/assets/images/project 3.avif"
-    ],
-
-    tags: ["SaaS", "Branding", "Framer", "UI/UX"],
-    year: 2025,
-    link: "https://seera.framer.website/projects/revo"
-  },
   buzz: {
     id: "buzz",
     title: "Buzz",
-    subtitle: "Real-Time Chat Web Application",
+    subtitle: "Real-Time Stealth Messenger App",
     description:
-      "A full-stack real-time chat app secretly hidden inside an SSC government portal. A 5-click trigger on the emblem reveals a fully functional Instagram-style messenger with text, image, video, and voice messages — complete with live typing indicators, delivered/seen receipts, emoji reactions, swipe-to-reply, and a full-screen media viewer.",
+      "A full-stack real-time chat application secretly hidden inside an SSC government portal. A 5-click trigger on the emblem reveals a fully functional Instagram-style messenger with text, image, video, and voice notes — complete with live typing indicators, delivered/seen receipts, emoji reactions, swipe-to-reply, and a full-screen media viewer.",
     services: [
       {
         title: "Backend & Real-Time",
@@ -101,17 +12,147 @@ const projects = {
       },
       {
         title: "Frontend Engineering",
-        details: "13-module vanilla JavaScript, mobile-first with touch gestures, voice recording with live waveform visualisation, and audio playback with progress canvas."
+        details: "13-module vanilla JavaScript, mobile-first with touch gestures, voice recording with live waveform visualization, and audio playback with progress canvas."
       }
     ],
-     images: [
+    images: [
       "/assets/images/buzz/image.png",
+      "/assets/images/project1.avif",
+      "/assets/images/project 2.avif"
     ],
-
     tags: ["Node.js", "Socket.IO", "MongoDB", "Cloudinary", "Vanilla JS", "Mobile-First"],
     year: 2025,
     link: "https://noira.sbs"
+  },
 
+  exampro: {
+    id: "exampro",
+    title: "ExamPro",
+    subtitle: "Proctored MCQ Exam & Candidate Analytics",
+    description:
+      "A high-fidelity online MCQ examination platform featuring automated anti-cheat proctoring (tab-switch tracking, fullscreen enforcement, 3-strike submission), continuous localStorage checkpoint auto-save, keyboard navigation shortcuts, dark/light theme engines, and candidate performance analytics.",
+    services: [
+      {
+        title: "Frontend Architecture",
+        details: "React, Vite, Tailwind CSS v4, Lucide React, Zod schema validation, and custom dark/light theme context."
+      },
+      {
+        title: "Proctoring & Resilience",
+        details: "Automated focus tracking, tab-switch warning system, background auto-save to localStorage, and keyboard-driven exam navigation."
+      }
+    ],
+    images: [
+      "/assets/images/exampro_preview.jpg",
+      "/assets/images/project 2.avif",
+      "/assets/images/project 3.avif"
+    ],
+    tags: ["React", "Vite", "Tailwind CSS v4", "Lucide React", "Proctoring", "Zod"],
+    year: 2025,
+    link: "https://github.com/CodeWithMe072/exampro"
+  },
+
+  contacthub: {
+    id: "contacthub",
+    title: "Contact Hub",
+    subtitle: "Centralized Multi-Site API & Security Admin",
+    description:
+      "A centralized backend service and responsive dark-mode administrative dashboard for collecting, securing, and managing contact form submissions across multiple external client websites. Includes dynamic CORS domain locking, crypto-secure API key rotation, XSS tag sanitization, and rate-limiting per key.",
+    services: [
+      {
+        title: "Security & API Engineering",
+        details: "Crypto-secure API key generation (hk_...), dynamic CORS domain locking, XSS tag stripping, and rate-limiting per API key + IP combo."
+      },
+      {
+        title: "Admin Dashboard",
+        details: "Server-rendered EJS dark-mode administrative dashboard with session authentication (express-session + connect-mongo) and message management."
+      }
+    ],
+    images: [
+      "/assets/images/contacthub_preview.jpg",
+      "/assets/images/project1.avif",
+      "/assets/images/project 2.avif"
+    ],
+    tags: ["Node.js", "Express", "MongoDB", "EJS", "Security", "Rate-Limiting"],
+    year: 2025,
+    link: "https://github.com/CodeWithMe072/contact-hub"
+  },
+
+  neva: {
+    id: "neva",
+    title: "Neva",
+    subtitle: "Distributed Microservices Chat & Search",
+    description:
+      "A scalable microservice architecture separating authentication, chat streaming, search indexing, and user profile management into dedicated Express.js services. Features RabbitMQ asynchronous event messaging, Drizzle ORM schema management, and MySQL transactional persistence.",
+    services: [
+      {
+        title: "Microservices & Message Queues",
+        details: "Express.js microservices communicating asynchronously via RabbitMQ (amqplib) event streams."
+      },
+      {
+        title: "Database Architecture",
+        details: "Drizzle ORM with MySQL2, JWT authentication, Zod schema validation, and bcrypt password hashing."
+      }
+    ],
+    images: [
+      "/assets/images/neva_preview.jpg",
+      "/assets/images/project 3.avif",
+      "/assets/images/project1.avif"
+    ],
+    tags: ["Express.js", "Microservices", "RabbitMQ", "MySQL", "Drizzle ORM", "Zod"],
+    year: 2025,
+    link: "https://github.com/CodeWithMe072/neva"
+  },
+
+  eccommanager: {
+    id: "eccommanager",
+    title: "Eccom Manager",
+    subtitle: "E-Commerce Operations & Inventory Backend",
+    description:
+      "An operational e-commerce backend system featuring Redis API response caching, Cloudinary media upload streams, Mongoose ODM database schemas, EJS management dashboards, Google OAuth authentication, and automated email notifications via Nodemailer & Resend API.",
+    services: [
+      {
+        title: "Backend Operations",
+        details: "Express v5 REST APIs, MongoDB schema modeling, Redis performance caching, and Cloudinary image upload pipelines."
+      },
+      {
+        title: "Auth & Communication",
+        details: "JWT + Cookie authorization, Google OAuth integration via googleapis, and transaction email notifications via Nodemailer & Resend."
+      }
+    ],
+    images: [
+      "/assets/images/eccom_preview.jpg",
+      "/assets/images/project 2.avif",
+      "/assets/images/project 3.avif"
+    ],
+    tags: ["Node.js", "Express", "MongoDB", "Redis", "Cloudinary", "Google OAuth"],
+    year: 2025,
+    link: "https://github.com/CodeWithMe072/eccom-manager"
+  },
+
+  streamer: {
+    id: "streamer",
+    title: "Streamer HLS",
+    subtitle: "Custom 5-Chunk Window Video Streaming",
+    description:
+      "A high-performance Node.js video streaming server implementing a custom 5-chunk sliding window caching mechanism (2 previous, 1 current, 2 next chunks). Powered by FFmpeg-static for automated video segmenting and smooth HTTP byte-range video playback.",
+    services: [
+      {
+        title: "Streaming Architecture",
+        details: "Custom 5-chunk buffer allocation strategy for zero-stutter video seeking and adaptive HTTP byte-range slicing."
+      },
+      {
+        title: "Media Processing",
+        details: "FFmpeg-static automated HLS video segmentation, custom control visualization, and bandwidth optimization."
+      }
+    ],
+    images: [
+      "/assets/images/streamer_preview.jpg",
+      "/assets/images/project1.avif",
+      "/assets/images/project 3.avif"
+    ],
+    tags: ["Node.js", "Express", "FFmpeg", "HLS", "Video Streaming", "HTTP Range"],
+    year: 2024,
+    link: "https://github.com/CodeWithMe072/hls-streamer"
   }
 };
 

@@ -444,6 +444,47 @@
     font-size: 14px;
 }
 
+#UsedTools .toolHeadingDiv {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 100%;
+}
+
+#UsedTools .viewAllToolsBtn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 22px;
+    background-color: var(--token-purple-bg);
+    border: 1px solid var(--token-purple-bg);
+    border-radius: 40px;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+    box-shadow: 0px 4px 15px rgba(145, 75, 241, 0.3);
+    margin-bottom: 5px;
+}
+
+#UsedTools .viewAllToolsBtn:hover {
+    background-color: var(--token-purple-bg);
+    border-color: var(--token-purple-bg);
+    transform: translateY(-2px);
+    box-shadow: 0px 6px 20px rgba(145, 75, 241, 0.5);
+}
+
+#UsedTools .viewAllToolsBtn svg {
+    transition: transform 0.3s ease;
+}
+
+#UsedTools .viewAllToolsBtn:hover svg {
+    transform: translate(3px, -3px);
+}
+
 /*------------- Used tool section end---------- */
 /*----------- clientReview section start--------- */
 #clientReview {

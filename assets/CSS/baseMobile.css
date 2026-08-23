@@ -609,6 +609,11 @@
         letter-spacing: 0.12em;
     }
 
+    .intro-subtitle {
+        font-size: 11px;
+        letter-spacing: 0.14em;
+    }
+
     .intro-center {
         max-width: 100%;
         height: 190px;

@@ -33,17 +33,32 @@
         <div id="introRingAnim" class="intro-ring-anim">
           <svg class="infinity-preloader-svg" viewBox="0 0 680 260" xmlns="http://www.w3.org/2000/svg">
             <g class="infinity-preloader-group">
-              <!-- Left Pair (cx = 160, cy = 130) -->
-              <circle class="preloader-circle preloader-circle-outer" cx="160" cy="130" r="118" style="--delay: 0.00s;"></circle>
-              <circle class="preloader-circle preloader-circle-inner" cx="160" cy="130" r="95" style="--delay: 0.15s;"></circle>
+              <!--
+                Delays are NEGATIVE so every ring is already mid-phase on frame 1
+                (a positive delay would hold the ring frozen at its 0% keyframe).
+                Pairs are spaced T/3 apart (0.8s of the 2.4s cycle) so the wave
+                travels left -> right and the loader is never close to empty.
+                Inner ring trails its outer by T/12 (0.2s) so the pair reads as one object.
+              -->
+              <!-- Circle 1 (Left: cx = 127, cy = 130) -->
+              <!-- Phase 1 Target: Circle 1 Top Arc (Point A to Point B) -->
+              <path class="arc-path arc-c1-top arc-outer" d="M 9 130 A 118 118 0 0 1 245 130"></path>
+              <path class="arc-path arc-c1-top arc-inner" d="M 32 130 A 95 95 0 0 1 222 130"></path>
+              <path class="arc-path arc-c1-bottom arc-outer" d="M 9 130 A 118 118 0 0 0 245 130"></path>
+              <path class="arc-path arc-c1-bottom arc-inner" d="M 32 130 A 95 95 0 0 0 222 130"></path>
 
-              <!-- Center Pair (cx = 340, cy = 130) -->
-              <circle class="preloader-circle preloader-circle-outer" cx="340" cy="130" r="118" style="--delay: 0.30s;"></circle>
-              <circle class="preloader-circle preloader-circle-inner" cx="340" cy="130" r="95" style="--delay: 0.45s;"></circle>
+              <!-- Circle 2 (Center: cx = 340, cy = 130) -->
+              <!-- Phase 2 Target: Circle 2 Bottom Arc (Point B to Point C) -->
+              <path class="arc-path arc-c2-top arc-outer" d="M 222 130 A 118 118 0 0 1 458 130"></path>
+              <path class="arc-path arc-c2-top arc-inner" d="M 245 130 A 95 95 0 0 1 435 130"></path>
+              <path class="arc-path arc-c2-bottom arc-outer" d="M 222 130 A 118 118 0 0 0 458 130"></path>
+              <path class="arc-path arc-c2-bottom arc-inner" d="M 245 130 A 95 95 0 0 0 435 130"></path>
 
-              <!-- Right Pair (cx = 520, cy = 130) -->
-              <circle class="preloader-circle preloader-circle-outer" cx="520" cy="130" r="118" style="--delay: 0.60s;"></circle>
-              <circle class="preloader-circle preloader-circle-inner" cx="520" cy="130" r="95" style="--delay: 0.75s;"></circle>
+              <!-- Circle 3 (Right: cx = 553, cy = 130) -->
+              <path class="arc-path arc-c3-top arc-outer" d="M 435 130 A 118 118 0 0 1 671 130"></path>
+              <path class="arc-path arc-c3-top arc-inner" d="M 458 130 A 95 95 0 0 1 648 130"></path>
+              <path class="arc-path arc-c3-bottom arc-outer" d="M 435 130 A 118 118 0 0 0 671 130"></path>
+              <path class="arc-path arc-c3-bottom arc-inner" d="M 458 130 A 95 95 0 0 0 648 130"></path>
             </g>
           </svg>
         </div>
@@ -54,7 +69,7 @@
         </button>
       </div>
 
-      <p class="intro-title">BACKEND DEVELOPER &amp; FULL-STACK ENGINEER</p>
+      <p class="intro-subtitle">BACKEND DEVELOPER &amp; FULL-STACK ENGINEER</p>
     </div>
   </div>
   <div id="nav-progress-bar"></div>

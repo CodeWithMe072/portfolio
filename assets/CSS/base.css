@@ -1127,12 +1127,16 @@ section.section-animate-active {
     transition: opacity 0.8s ease, visibility 0.8s ease;
 }
 
-/* Hide rings completely when intro screen is ready */
-.intro-screen.ready .intro-ring-anim,
+/* Settle is driven by settleIntroRings() in pageControl.js via the Web Animations API,
+   deliberately not from CSS here. An `!important` author declaration outranks animations,
+   so a `stroke-dashoffset: 0 !important` rule would override the settle and force every
+   ring to snap — and a plain transition can't work either, because a transition has to
+   already exist in the before-change style to fire. */
 .intro-ring-anim.fade-out {
     opacity: 0 !important;
     visibility: hidden !important;
     pointer-events: none !important;
+    transition: opacity 0.6s ease, visibility 0.6s ease;
 }
 
 .infinity-preloader-svg {
@@ -1143,51 +1147,130 @@ section.section-animate-active {
     overflow: visible;
 }
 
-.preloader-circle {
+.arc-path {
     fill: none;
     stroke-linecap: round;
-    position: static !important;
-    transform: none !important;
+    will-change: stroke-dashoffset;
 }
 
-.preloader-circle-outer {
+.arc-outer {
     stroke: rgba(145, 75, 241, 0.95);
-    stroke-width: 2px;
-    stroke-dasharray: 742 742;
-    animation: drawOuter 2.4s ease-in-out infinite;
-    animation-delay: var(--delay);
+    stroke-width: 2.5px;
+    stroke-dasharray: 371 371;
 }
 
-.preloader-circle-inner {
+.arc-inner {
     stroke: rgba(255, 255, 255, 0.85);
-    stroke-width: 2px;
-    stroke-dasharray: 597 597;
-    animation: drawInner 2.4s ease-in-out infinite;
-    animation-delay: var(--delay);
+    stroke-width: 2.5px;
+    stroke-dasharray: 299 299;
 }
 
-@keyframes drawOuter {
-    0% {
-        stroke-dashoffset: 0;
-    }
-    50% {
-        stroke-dashoffset: 742;
-    }
-    100% {
-        stroke-dashoffset: 0;
-    }
+/* Phase 1: Circle 1 Top Arc (Point A -> Point B) erases (0.00s - 0.50s) */
+.arc-c1-top.arc-outer {
+    animation: phase1Outer 3s linear infinite;
+}
+.arc-c1-top.arc-inner {
+    animation: phase1Inner 3s linear infinite;
 }
 
-@keyframes drawInner {
-    0% {
-        stroke-dashoffset: 0;
-    }
-    50% {
-        stroke-dashoffset: 597;
-    }
-    100% {
-        stroke-dashoffset: 0;
-    }
+/* Phase 2: Circle 2 Bottom Arc (Point B -> Point C) erases (0.50s - 1.00s) */
+.arc-c2-bottom.arc-outer {
+    animation: phase2Outer 3s linear infinite;
+}
+.arc-c2-bottom.arc-inner {
+    animation: phase2Inner 3s linear infinite;
+}
+
+/* Phase 3: Circle 3 Top Arc (Point D -> Point E) erases (1.00s - 1.50s) */
+.arc-c3-top.arc-outer {
+    animation: phase3Outer 3s linear infinite;
+}
+.arc-c3-top.arc-inner {
+    animation: phase3Inner 3s linear infinite;
+}
+
+/* Phase 4: Circle 3 Bottom Arc (Point E -> Point D) erases (1.50s - 2.00s) */
+.arc-c3-bottom.arc-outer {
+    animation: phase4Outer 3s linear infinite;
+}
+.arc-c3-bottom.arc-inner {
+    animation: phase4Inner 3s linear infinite;
+}
+
+/* Phase 5: Circle 2 Top Arc (Point G -> Point F) erases (2.00s - 2.50s) */
+.arc-c2-top.arc-outer {
+    animation: phase5Outer 3s linear infinite;
+}
+.arc-c2-top.arc-inner {
+    animation: phase5Inner 3s linear infinite;
+}
+
+/* Phase 6: Circle 1 Bottom Arc (Point B -> Point A) erases (2.50s - 3.00s) */
+.arc-c1-bottom.arc-outer {
+    animation: phase6Outer 3s linear infinite;
+}
+.arc-c1-bottom.arc-inner {
+    animation: phase6Inner 3s linear infinite;
+}
+
+/* Keyframes for Phase 1 (Point A -> Point B) */
+@keyframes phase1Outer {
+    0% { stroke-dashoffset: 0; }
+    16.66%, 100% { stroke-dashoffset: -371; }
+}
+@keyframes phase1Inner {
+    0%, 4% { stroke-dashoffset: 0; }
+    20.66%, 100% { stroke-dashoffset: -299; }
+}
+
+/* Keyframes for Phase 2 (Point B -> Point C) */
+@keyframes phase2Outer {
+    0%, 16.66% { stroke-dashoffset: 0; }
+    33.33%, 100% { stroke-dashoffset: -371; }
+}
+@keyframes phase2Inner {
+    0%, 20.66% { stroke-dashoffset: 0; }
+    37.33%, 100% { stroke-dashoffset: -299; }
+}
+
+/* Keyframes for Phase 3 (Point D -> Point E) */
+@keyframes phase3Outer {
+    0%, 33.33% { stroke-dashoffset: 0; }
+    50.0%, 100% { stroke-dashoffset: -371; }
+}
+@keyframes phase3Inner {
+    0%, 37.33% { stroke-dashoffset: 0; }
+    54.0%, 100% { stroke-dashoffset: -299; }
+}
+
+/* Keyframes for Phase 4 (Point E -> Point D) */
+@keyframes phase4Outer {
+    0%, 50.0% { stroke-dashoffset: 0; }
+    66.66%, 100% { stroke-dashoffset: 371; }
+}
+@keyframes phase4Inner {
+    0%, 54.0% { stroke-dashoffset: 0; }
+    70.66%, 100% { stroke-dashoffset: 299; }
+}
+
+/* Keyframes for Phase 5 (Point G -> Point F) */
+@keyframes phase5Outer {
+    0%, 66.66% { stroke-dashoffset: 0; }
+    83.33%, 100% { stroke-dashoffset: 371; }
+}
+@keyframes phase5Inner {
+    0%, 70.66% { stroke-dashoffset: 0; }
+    87.33%, 100% { stroke-dashoffset: 299; }
+}
+
+/* Keyframes for Phase 6 (Point B -> Point A) */
+@keyframes phase6Outer {
+    0%, 83.33% { stroke-dashoffset: 0; }
+    100% { stroke-dashoffset: 371; }
+}
+@keyframes phase6Inner {
+    0%, 87.33% { stroke-dashoffset: 0; }
+    100% { stroke-dashoffset: 299; }
 }
 
 /* Reduced Motion Fallback */
@@ -1195,6 +1278,8 @@ section.section-animate-active {
     .preloader-circle {
         animation: none !important;
         stroke-dashoffset: 0 !important;
+        opacity: 1 !important;
+        transition: none !important;
     }
 }
 

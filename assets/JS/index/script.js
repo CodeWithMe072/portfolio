@@ -460,6 +460,8 @@ function loadProjectFileData(projectName) {
     const projectDescMain = document.getElementById("projectDescMain")
     const ideaCardConatiner = document.getElementById("ideaCardConatiner")
     const projectAllImages = document.getElementById("projectAllImages")
+    if (ideaCardConatiner) ideaCardConatiner.innerHTML = ""
+    if (projectAllImages) projectAllImages.innerHTML = ""
     MainProjectImage.src = project.images[0]
     MainProjectImage.parentElement.setAttribute("data-index", "0")
     MainProjectImage.parentElement.setAttribute("data-project", projectName)
@@ -580,7 +582,7 @@ function showTabsTool(tab) {
             ...tools[t]
         }));
     console.log(Tools)
-    Tools.forEach((t, tidx) => {
+    Tools.forEach((t) => {
         const isInvert = t.invert ? "invert" : "";
         const isRevert = t.revert ? "revert" : "";
         toolWrapper.innerHTML += `
@@ -594,9 +596,6 @@ function showTabsTool(tab) {
             </div>
           </div>
     `
-        if (tidx == 6) {
-            return
-        }
     })
 
     let tabs = document.querySelectorAll(".toolTab")
@@ -623,6 +622,50 @@ function handeTabClick() {
 
 
 
+function showOneToolPerCategory() {
+    let toolWrapper = document.getElementById("tool-wrapper");
+    if (!toolWrapper) return;
+    toolWrapper.innerHTML = '';
+
+    let categories = [];
+    Object.keys(tools).forEach(t => {
+        const cat = tools[t].category;
+        if (!categories.includes(cat)) {
+            categories.push(cat);
+        }
+    });
+
+    categories.forEach(cat => {
+        const toolKey = Object.keys(tools).find(k => tools[k].category === cat);
+        if (toolKey) {
+            const t = { id: toolKey, ...tools[toolKey] };
+            const isInvert = t.invert ? "invert" : "";
+            const isRevert = t.revert ? "revert" : "";
+            toolWrapper.innerHTML += `
+     <div class="tool" data-tool="${t.id}" >
+            <div class="tool-image ${isInvert} ${isRevert}">
+              <img src="${t.image}" alt="${t.name}">
+            </div>
+            <div class="toolNameDesc">
+              <span class="toolName">${t.name}</span>
+              <span class="toolDec">${t.category.replaceAll("-", " ")}</span>
+            </div>
+          </div>
+            `;
+        }
+    });
+}
+
+function handelViewAllTools() {
+    const viewAllBtn = document.getElementById("viewAllToolsBtn");
+    if (viewAllBtn) {
+        viewAllBtn.addEventListener("click", () => {
+            changeContent("/tools");
+            history.pushState({}, "", "/tools");
+        });
+    }
+}
+
 function showProjectIntoHtml(count = Object.keys(projects).length) {
     const recentProjectConatiner = document.getElementById("recentProjectConatiner")
     let i = 1
@@ -639,7 +682,7 @@ function showProjectIntoHtml(count = Object.keys(projects).length) {
             <div class="overlayarrow">
               <div class="mainarrow">
                 <div class="arrow-btn">↗</div>
-                <div class="viewProject">view Project</div>
+                <div class="viewProject">Live Preview</div>
               </div>
             </div>
           </div>
@@ -658,9 +701,8 @@ if (window.location.pathname == "/") {
     updateSlider()
     showProjectIntoHtml(4)
     handelHoverCursor()
-    showToolTabs()
-    showTabsTool("Server-Side")
-    handeTabClick()
+    showOneToolPerCategory()
+    handelViewAllTools()
     hnadelConatcBtns()
     hnadelWorkText()
     hnadelControlBtn()
@@ -674,6 +716,7 @@ if (window.location.pathname == "/") {
 } else if (window.location.pathname == "/tools") {
     showToolTabs()
     showTabsTool("Server-Side")
+    handeTabClick()
     handelCollaborate()
 } else if (window.location.pathname == "/experiences") {
     handelExperiencesCard()

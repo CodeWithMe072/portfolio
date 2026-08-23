@@ -180,7 +180,7 @@ let bodyHtml = `
                   </div>
                   <div class="navTitle">Dribbble</div>
                 </a>
-                <a href="https://github.com" target="_blank" rel="noopener" class="navanchor icon" title="GitHub">
+                <a href="https://github.com/CodeWithMe072" target="_blank" rel="noopener" class="navanchor icon" title="GitHub">
                   <div class="navbg"></div>
                   <div class="achoerdiv icondiv">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -196,7 +196,7 @@ let bodyHtml = `
                   </div>
                   <div class="navTitle">GitHub</div>
                 </a>
-                <a href="https://linkedin.com" target="_blank" rel="noopener" class="navanchor icon" title="LinkedIn">
+                <a href="https://www.linkedin.com/in/sanjay-chouhan-667069301/" target="_blank" rel="noopener" class="navanchor icon" title="LinkedIn">
                   <div class="navbg"></div>
                   <div class="achoerdiv icondiv">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 14 14" fill="none"
@@ -208,7 +208,7 @@ let bodyHtml = `
                   </div>
                   <div class="navTitle">LinkedIn</div>
                 </a>
-                <a href="https://instagram.com" target="_blank" rel="noopener" class="navanchor icon" title="Instagram">
+                <a href="https://www.instagram.com/codewithme072/" target="_blank" rel="noopener" class="navanchor icon" title="Instagram">
                   <div class="navbg"></div>
                   <div class="achoerdiv icondiv">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -221,7 +221,7 @@ let bodyHtml = `
                   </div>
                   <div class="navTitle">Instagram</div>
                 </a>
-                <a href="mailto:contact@sanjaychouhan.dev" class="navanchor icon" title="Email">
+                <a href="mailto:sanjaystar14581@gmail.com" class="navanchor icon" title="Email">
                   <div class="navbg"></div>
                   <div class="achoerdiv icondiv">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -443,9 +443,6 @@ function runLoadingSequence() {
             if (realContent) realContent.classList.add("mainAimationContent");
             if (realProfile) realProfile.classList.add("mainAimationProfile");
         }
-
-        // ✅ Play song AFTER loading completes and website is revealed
-        playBackgroundAudio();
     }, 8600);
 }
 
@@ -484,21 +481,75 @@ function playBackgroundAudio() {
     });
 }
 
+// Settles every ring onto a gap-free circle by the shortest route.
+//
+// Any dash offset congruent to 0 (mod the pattern period) renders as a complete circle,
+// so each ring settles to whichever multiple of the period is nearest its current offset.
+// In practice that is 0: a ring still drawing in simply grows to full, and one already
+// erasing closes its gap back up. Both read as completing. Carrying an erasing ring
+// *forward* to the next complete state instead would cost it nearly a full extra
+// revolution, which is far more motion than the finish needs.
+//
+// Driven with the Web Animations API rather than a CSS transition: the interpolation has
+// to start from the exact value the keyframes were mid-flight on, and a transition only
+// fires if it already exists in the before-change style — declaring it alongside the
+// value change (as this previously did) silently does nothing and the rings snap.
+function settleIntroRings(introRingAnim) {
+    if (!introRingAnim) return;
+
+    const circles = introRingAnim.querySelectorAll(".preloader-circle");
+
+    circles.forEach(circle => {
+        const live = window.getComputedStyle(circle);
+        const period = parseFloat(live.strokeDasharray) * 2; // dash + gap
+        const offset = parseFloat(live.strokeDashoffset) || 0;
+        const opacity = live.opacity;
+        const settled = Math.round(offset / period) * period;
+
+        // Drop the keyframes, pinning the live values so there is no jump at handover.
+        circle.style.animation = "none";
+        circle.style.strokeDashoffset = offset + "px";
+        circle.style.opacity = opacity;
+
+        if (typeof circle.animate !== "function") {
+            circle.style.strokeDashoffset = settled + "px";
+            circle.style.opacity = "1";
+            return;
+        }
+
+        circle.animate(
+            [
+                { strokeDashoffset: offset + "px", opacity: opacity },
+                { strokeDashoffset: settled + "px", opacity: 1 }
+            ],
+            { duration: 900, easing: "cubic-bezier(0.22, 1, 0.36, 1)", fill: "forwards" }
+        );
+    });
+
+    introRingAnim.classList.add("settle");
+}
+
 function initIntroScreen() {
     const introScreen = document.getElementById("introScreen");
     const enterBtn = document.getElementById("enterBtn");
+    const introRingAnim = document.getElementById("introRingAnim");
 
     if (!introScreen || !enterBtn) {
         runLoadingSequence();
         return;
     }
 
-    // Step 1: After 2.4s ripple cycles, fade out preloader circles and reveal Enter button & Title
+    // Step 1: let the ripple run a full 2.4s cycle, settle the rings forward onto a
+    // gap-free circle (0.9s), hold that completed state, then fade out and reveal
+    // the title + Enter button.
     setTimeout(() => {
-        const introRingAnim = document.getElementById("introRingAnim");
-        if (introRingAnim) introRingAnim.classList.add("fade-out");
-        introScreen.classList.add("ready");
-    }, 2400);
+        settleIntroRings(introRingAnim);
+
+        setTimeout(() => {
+            if (introRingAnim) introRingAnim.classList.add("fade-out");
+            introScreen.classList.add("ready");
+        }, 1200);
+    }, 2600);
 
     // Step 2: On Enter button click, pre-start audio muted (satisfying browser autoplay policy) and trigger loading screen
     enterBtn.addEventListener("click", () => {
@@ -530,9 +581,9 @@ function startCounter() {
     if (counter) counter.textContent = formateNumber(0);
 
     let interval = setInterval(() => {
-        console.log(count)
-        if (count >= finalEnd) {   // stop BEFORE writing extra number
+        if (count >= finalEnd) {   // Counter reaches 100
             clearInterval(interval);
+            playBackgroundAudio(); // ✅ Play sound IMMEDIATELY when counter reaches 100!
             return;
         }
         if (counter) counter.textContent = formateNumber(count);
