@@ -277,17 +277,28 @@ function hnadelWorkText() {
     let line = document.querySelector(".line");
     let polyline = document.querySelector(".polyline");
     let worktext = document.querySelector(".worktext");
+    if (!worktext) return;
+
     worktext.addEventListener("mousemove", () => {
-        line.setAttribute("stroke", "rgb(145, 75, 241)");
-        polyline.setAttribute("stroke", "rgb(145, 75, 241)");
+        if (line) line.setAttribute("stroke", "rgb(145, 75, 241)");
+        if (polyline) polyline.setAttribute("stroke", "rgb(145, 75, 241)");
     });
     worktext.addEventListener("mouseleave", () => {
-        line.setAttribute("stroke", "white");
-        polyline.setAttribute("stroke", "");
+        if (line) line.setAttribute("stroke", "white");
+        if (polyline) polyline.setAttribute("stroke", "");
     });
     worktext.addEventListener("click", () => {
-        document.getElementById("navProjectBtn").click()
-    })
+        if (window.location.pathname.includes("/projects/")) {
+            let pathArra = window.location.pathname.split("/");
+            let projId = pathArra[pathArra.length - 1];
+            if (projects[projId] && projects[projId].link) {
+                window.open(projects[projId].link, "_blank");
+            }
+        } else {
+            const navBtn = document.getElementById("navProjectBtn");
+            if (navBtn) navBtn.click();
+        }
+    });
 }
 
 function hnadelControlBtn() {
@@ -516,9 +527,39 @@ function loadProjectFileData(projectName) {
                     </div>
                 </div>
     `
-
     }
+    showMoreProjects(projectName, 4);
+}
 
+function showMoreProjects(currentProjectKey, count = 4) {
+    const recentProjectConatiner = document.getElementById("recentProjectConatiner");
+    if (!recentProjectConatiner) return;
+    recentProjectConatiner.innerHTML = "";
+
+    let keys = Object.keys(projects).filter(k => k !== currentProjectKey);
+    let added = 0;
+    for (const key of keys) {
+        const p = projects[key];
+        recentProjectConatiner.innerHTML += `
+    <div class="project hoverCursor" data-project="${key}">
+            <div class="project-image">
+              <img src="${p.images[0]}" alt="${p.title}" />
+            </div>
+            <div class="projectNameDesc">
+              <span class="projectName">${p.title}</span>
+              <span class="projectdesc">${p.subtitle}</span>
+            </div>
+            <div class="overlayarrow">
+              <div class="mainarrow">
+                <div class="arrow-btn">↗</div>
+                <div class="viewProject">Live Preview</div>
+              </div>
+            </div>
+          </div>
+        `;
+        added++;
+        if (added >= count) break;
+    }
 }
 function backgroundHover() {
     const outline = document.querySelector('#cursor-outline');

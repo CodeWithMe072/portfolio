@@ -343,7 +343,10 @@ async function handelPage(urlEndpoint) {
 
     // ✅ Inject HTML safely
     document.body.innerHTML += baseDoc.body.innerHTML;
-    document.title = route.title
+    document.title = route.title;
+    if (typeof updateNavActiveState === "function") {
+        updateNavActiveState(urlEndpoint);
+    }
     document.getElementById("header").style.zIndex = ""
     const header = document.getElementById("header");
     header.style.top = header.offsetTop + "px";

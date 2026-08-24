@@ -9,6 +9,7 @@
 html.no-scroll {
     overflow: hidden !important;
     height: 100vh;
+    
 }
 
 
@@ -1348,4 +1349,4 @@ section.section-animate-active {
     transform: translate(-50%, -50%) scale(1);
     pointer-events: auto;
 }
-
+

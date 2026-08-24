@@ -1,26 +1,40 @@
 var contactBtns = document.querySelectorAll(".contact-btn");
 var navanchors = document.querySelectorAll(".navanchor");
 
+function updateNavActiveState(currentPath) {
+	const path = currentPath || window.location.pathname;
+	const navanchors = document.querySelectorAll(".navanchor");
+	navanchors.forEach(nav => {
+		nav.classList.remove("active");
+		let action = nav.getAttribute("data-action");
+		if (action === "/") {
+			if (path === "/") {
+				nav.classList.add("active");
+			}
+		} else if (action) {
+			if (path === action || path.startsWith(action + "/") || path.startsWith(action + "?")) {
+				nav.classList.add("active");
+			}
+		}
+	});
+}
+
 navanchors.forEach(nav => {
 	nav.addEventListener("click", () => {
-		navanchors.forEach(oldnav => oldnav.classList.remove("active"))
-		let route = nav.getAttribute("data-action")
-		changeContent(route)
+		let route = nav.getAttribute("data-action");
+		changeContent(route);
 		history.pushState({}, "", route);
-		nav.classList.add("active")
-	})
+		updateNavActiveState(route);
+	});
 	nav.addEventListener("mouseenter", () => {
-		nav.classList.add("hoverActive")
-	})
+		nav.classList.add("hoverActive");
+	});
 	nav.addEventListener("mouseleave", () => {
-		nav.classList.remove("hoverActive")
-	})
-	let action = nav.getAttribute("data-action")
-	if ((window.location.pathname.includes(action + "/") || window.location.pathname == action) && !nav.classList.contains("active")) {
-		navanchors.forEach(item => item.classList.remove("active"))
-		nav.classList.add("active")
-	}
-})
+		nav.classList.remove("hoverActive");
+	});
+});
+
+updateNavActiveState();
 
 contactBtns.forEach((contactBtn) => {
 	let span1 = contactBtn.querySelector("#span1");
@@ -46,6 +60,7 @@ async function changeContent(router) {
 		console.warn("Route not found:", router);
 		return;
 	}
+	updateNavActiveState(router);
 	showProgressBar(); 
 
 	// Load HTML
