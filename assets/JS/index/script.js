@@ -703,6 +703,18 @@ function handelViewAllTools() {
         viewAllBtn.addEventListener("click", () => {
             changeContent("/tools");
             history.pushState({}, "", "/tools");
+            if (typeof updateNavActiveState === "function") updateNavActiveState("/tools");
+        });
+    }
+}
+
+function handelViewAllProjects() {
+    const viewAllBtn = document.getElementById("viewAllProjectsBtn");
+    if (viewAllBtn) {
+        viewAllBtn.addEventListener("click", () => {
+            changeContent("/projects");
+            history.pushState({}, "", "/projects");
+            if (typeof updateNavActiveState === "function") updateNavActiveState("/projects");
         });
     }
 }
@@ -789,6 +801,7 @@ if (window.location.pathname == "/") {
     getCardWidth()
     updateSlider()
     showProjectIntoHtml(4)
+    handelViewAllProjects()
     handelHoverCursor()
     showOneToolPerCategory()
     handelViewAllTools()
