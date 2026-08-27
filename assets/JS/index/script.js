@@ -714,7 +714,7 @@ function showProjectIntoHtml(count = Object.keys(projects).length) {
         recentProjectConatiner.innerHTML += `
     <div class="project hoverCursor" data-project="${element}">
             <div class="project-image">
-              <img src="${projects[element].images[0]}" alt="" />
+              <img src="${projects[element].images[0]}" alt="${projects[element].title}" width="600" height="400" loading="lazy" />
             </div>
             <div class="projectNameDesc">
               <span class="projectName">${projects[element].title}</span>
@@ -735,6 +735,54 @@ function showProjectIntoHtml(count = Object.keys(projects).length) {
         i++
     }
 }
+
+function showExperiencesIntoHtml() {
+    const container = document.querySelector("#experiences .experiences-container");
+    if (!container || typeof experiences === "undefined") return;
+
+    container.innerHTML = experiences.map(exp => `
+        <div class="experiences-card" id="exp-${exp.id}">
+            <div class="experiences-card-head-part">
+                <div class="experiences-card-left-head-part">
+                    <div class="card-heading">
+                        <span>${exp.company} <small style="font-size: 18px; font-weight: 400; opacity: 0.85;">— ${exp.role} (${exp.employmentType})</small></span>
+                    </div>
+                    <div class="ex-card-desc">
+                        <p>${exp.description}</p>
+                        <ul style="margin-top: 10px; padding-left: 20px; list-style-type: disc; color: var(--token-white-gray-color); font-size: 14px; display: flex; flex-direction: column; gap: 6px;">
+                            ${exp.responsibilities.map(r => `<li>${r}</li>`).join("")}
+                        </ul>
+                        <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px;">
+                            ${exp.technologies.map(t => `<span style="background: rgba(255,255,255,0.08); padding: 4px 10px; border-radius: 6px; font-size: 12px; color: var(--token-fc7b9f32-7298-428e-bdfb-3530edb2e73a);">${t}</span>`).join("")}
+                        </div>
+                    </div>
+                    <div class="ex-card-datetime">
+                        <span>${exp.period} • ${exp.duration} • ${exp.location}</span>
+                    </div>
+                </div>
+                <div class="experiences-card-right-head-part">
+                    <div class="arrow">
+                        <div class="finalarrow" id="firstarroow">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="10mm" height="4mm" viewBox="0 0 40 12">
+                                <rect x="0" y="0" width="40" height="12" rx="2" fill="none" />
+                                <line x1="6" y1="6" x2="20" y2="6" stroke="white" stroke-width="1.8" stroke-linecap="round" />
+                                <polyline style="transform: translateX(-10px)" points="28,2 34,6 28,10" fill="none" stroke-width="1.8" stroke="white" class="polyline" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                        <div class="finalarrow" style="left: -50%;" id="secondarrow">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="10mm" height="4mm" viewBox="0 0 40 12">
+                                <rect x="0" y="0" width="40" height="12" rx="2" fill="none" />
+                                <line x1="6" y1="6" x2="20" y2="6" stroke="rgb(145, 75, 241)" stroke-width="1.8" stroke-linecap="round" />
+                                <polyline style="transform: translateX(-10px)" points="28,2 34,6 28,10" fill="none" stroke-width="1.8" stroke="rgb(145, 75, 241)" class="polyline" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `).join("");
+}
+
 backgroundHover();
 if (window.location.pathname == "/") {
     handelRigthLeftBtn()
@@ -760,6 +808,7 @@ if (window.location.pathname == "/") {
     handeTabClick()
     handelCollaborate()
 } else if (window.location.pathname == "/experiences") {
+    showExperiencesIntoHtml()
     handelExperiencesCard()
     handelCollaborate()
 } else if (window.location.pathname.includes("/projects/")) {

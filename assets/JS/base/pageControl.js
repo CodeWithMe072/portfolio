@@ -66,7 +66,7 @@ let bodyHtml = `
   <header id="header">
     <nav id="nav">
       <div class="navItems">
-        <a data-action="/" class="navanchor">
+        <a href="/" data-action="/" class="navanchor">
         <div class="navbg"></div>
           <div class="achoerdiv">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -78,7 +78,7 @@ let bodyHtml = `
           </div>
           <div class="navTitle">Home</div>
         </a>
-        <a data-action="/projects" class="navanchor" id="navProjectBtn">
+        <a href="/projects" data-action="/projects" class="navanchor" id="navProjectBtn">
         <div class="navbg"></div>
           <div class="achoerdiv">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -89,7 +89,7 @@ let bodyHtml = `
           </div>
           <div class="navTitle">projects</div>
         </a>
-        <a data-action="/tools" class="navanchor">
+        <a href="/tools" data-action="/tools" class="navanchor">
         <div class="navbg"></div>
           <div class="achoerdiv">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -102,7 +102,7 @@ let bodyHtml = `
           </div>
           <div class="navTitle">tools</div>
         </a>
-        <a data-action="/experiences" class="navanchor">
+        <a href="/experiences" data-action="/experiences" class="navanchor">
         <div class="navbg"></div>
           <div class="achoerdiv">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -114,7 +114,7 @@ let bodyHtml = `
           </div>
           <div class="navTitle">EXPERIENCE</div>
         </a>
-        <a data-action="/contact" class="navanchor" id="navContactBtn">
+        <a href="/contact" data-action="/contact" class="navanchor" id="navContactBtn">
         <div class="navbg"></div>
           <div class="achoerdiv">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -289,31 +289,38 @@ const routes = {
     "/": {
         html: "pages/home.html",
         script: "/assets/JS/index/script.js",
-        title: "Sanjay Chouhan"
+        title: "Sanjay Chouhan — Backend Developer & Full-Stack Engineer",
+        description: "Portfolio of Sanjay Chouhan, a Backend-focused Full-Stack Engineer specializing in Node.js, Express, MongoDB, Redis, WebSockets, WebRTC, and Python."
     },
     "/contact": {
         html: "pages/contact.html",
         script: "/assets/JS/contact/contact.js",
-        title: "Contact | Sanjay Chouhan"
+        title: "Contact | Sanjay Chouhan — Backend Developer",
+        description: "Get in touch with Sanjay Chouhan for backend engineering, API development, real-time web applications, or freelance opportunities."
     },
     "/projects": {
         html: "pages/projects.html",
         script: "/assets/JS/index/script.js",
-        title: "Projects | Sanjay Chouhan"
+        title: "Projects | Sanjay Chouhan — Real-time & Backend Work",
+        description: "Explore live projects by Sanjay Chouhan including Buzz (WebRTC/Socket.IO messenger), ecom_manager, Asset Infinity Clone, and ML APIs."
     },
     "/tools": {
         html: "pages/tools.html",
         script: "/assets/JS/index/script.js",
-        title: "Tools | Sanjay Chouhan"
+        title: "Technical Stack & Tools | Sanjay Chouhan",
+        description: "Technical toolset and stack expertise of Sanjay Chouhan: Node.js, Express, MongoDB, Redis, Python, Django, MySQL, PostgreSQL, AWS, and Git."
     },
     "/experiences": {
         html: "pages/experiences.html",
         script: "/assets/JS/index/script.js",
-        title: "Experience | Sanjay Chouhan"
+        title: "Experience | Sanjay Chouhan — Backend Developer",
+        description: "Work history and engineering experience of Sanjay Chouhan across freelance development, MARCNC hospital ERP backend, and MTB Pvt. Ltd."
     },
     "/projects/:slug": {
         html: "pages/projectView.html",
-        script: "/assets/JS/index/script.js"
+        script: "/assets/JS/index/script.js",
+        title: "Project View | Sanjay Chouhan",
+        description: "Detailed architecture overview and technical breakdown of portfolio projects built by Sanjay Chouhan."
     }
 };
 

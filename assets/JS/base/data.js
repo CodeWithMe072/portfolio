@@ -480,4 +480,101 @@ const tools = {
   }
 };
 
+const experiences = [
+  {
+    id: "freelance",
+    company: "Freelance / Independent",
+    role: "Freelance Backend & Full-Stack Developer",
+    employmentType: "Self-Employed",
+    period: "Jul 2026 – Present",
+    startDate: "2026-07",
+    endDate: "Present",
+    isCurrent: true,
+    duration: "Present",
+    location: "Remote / Haryana, India",
+    description: "Architecting and scaling production real-time applications, custom backend microservices, and end-to-end full-stack products for personal projects and clients.",
+    responsibilities: [
+      "Engineered Buzz (noira.sbs) — real-time stealth chat app with Socket.IO delivery/seen receipts, typing events, 30s reconnect grace, WebRTC audio/video calling, Cloudflare R2 media storage, BullMQ AI frame interpolation, and 30-min auto-deletion cron.",
+      "Built ecom_manager (backcrafter.shop) — e-commerce management dashboard utilizing Google Drive API & raw filesystem streams for multi-tenant data sync.",
+      "Created Asset Infinity Clone (asset-infity.netlify.app) — enterprise asset tracking software with multi-tier MongoDB lifecycle logging.",
+      "Built Employee Salary Prediction System — end-to-end machine learning pipeline with Pandas/NumPy preprocessing, Scikit-learn models, and Flask serving API."
+    ],
+    metrics: [
+      { label: "Projects Shipped", value: "4+ Live" },
+      { label: "Primary Focus", value: "Real-time & Distributed" }
+    ],
+    technologies: ["Node.js", "Express.js", "Socket.IO", "WebRTC", "Redis", "Cloudflare R2", "BullMQ", "MongoDB", "Python", "Flask", "React"]
+  },
+  {
+    id: "marcnc",
+    company: "MARCNC",
+    role: "Backend Developer",
+    employmentType: "Full-time",
+    period: "Jun 2026 – Jul 2026",
+    startDate: "2026-06",
+    endDate: "2026-07-15",
+    isCurrent: false,
+    duration: "1.5 mos (Ended Jul 15, 2026)",
+    location: "Haryana, India",
+    description: "Engineered core backend infrastructure and high-concurrency REST APIs for an enterprise Hospital Management System handling billing, ERP, inventory, and multi-role operations across clinical departments.",
+    responsibilities: [
+      "Architected multi-role RBAC security & JWT authentication governing 5+ user roles (Admin, Billing, Pharmacy, Clinical Staff, etc.).",
+      "Redesigned MongoDB aggregations and SQL indexing strategy, cutting high-frequency billing route query execution time by ~40%.",
+      "Implemented Redis caching and queue-based background workers for asynchronous report generation and automated notification dispatching.",
+      "Integrated government health scheme APIs (ECHS) mapping external endpoints (roomChargesList, consultationList, expenseList) seamlessly into internal billing models."
+    ],
+    metrics: [
+      { label: "Query Speedup", value: "~40%" },
+      { label: "User Roles Managed", value: "5+" }
+    ],
+    technologies: ["Node.js", "Express.js", "MongoDB", "SQL", "Redis", "JWT", "RBAC", "REST APIs", "ECHS API"]
+  },
+  {
+    id: "mtb",
+    company: "MTB Pvt. Ltd",
+    role: "Full-Stack Development Instructor",
+    employmentType: "Full-time",
+    period: "May 2025 – Jan 2026",
+    startDate: "2025-05",
+    endDate: "2026-01",
+    isCurrent: false,
+    duration: "9 mos",
+    location: "Haryana, India",
+    description: "Instructed 20+ students per cohort in Python, Django, Node.js, databases, and modern JS frameworks, focusing on practical API design, deployment pipelines, and backend architecture.",
+    responsibilities: [
+      "Designed comprehensive backend & full-stack curriculum covering REST APIs, ORMs, authentication, and database optimization.",
+      "Mentored student cohorts in shipping production-ready backend code; achieved 100% project deployment completion by course end.",
+      "Maintained high student satisfaction and instructional excellence with a 4.7/5.0 overall instructor rating."
+    ],
+    metrics: [
+      { label: "Instructor Rating", value: "4.7 / 5.0" },
+      { label: "Student Success Rate", value: "100% Deployed" }
+    ],
+    technologies: ["HTML", "CSS", "Node.js", "JavaScript", "MySQL", "MongoDB", "WebSocket", "Tailwind CSS", "Express"]
+  },
+  {
+    id: "pisoft",
+    company: "Pisoft Informatics",
+    role: "Backend Developer Intern",
+    employmentType: "Internship",
+    period: "Aug 2024 – Jan 2025",
+    startDate: "2024-08",
+    endDate: "2025-01",
+    isCurrent: false,
+    duration: "6 mos",
+    location: "Haryana, India",
+    description: "Developed robust Django & MySQL backend components for an e-commerce platform powering product cataloging, cart management, checkout orders, and inventory sync.",
+    responsibilities: [
+      "Designed and normalized relational database schemas across 8+ core entities to guarantee transactional consistency.",
+      "Optimized database queries and introduced targeted indexing on high-frequency tables, cutting API response times by ~30%."
+    ],
+    metrics: [
+      { label: "API Speedup", value: "~30%" },
+      { label: "Relational Entities", value: "8+" }
+    ],
+    technologies: ["Python", "Django", "MySQL", "REST APIs", "Database Indexing", "Relational Schema Design"]
+  }
+];
+
+
 

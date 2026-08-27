@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sanjaychouhan.netlify.app/sitemap.xml

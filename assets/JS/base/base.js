@@ -20,11 +20,14 @@ function updateNavActiveState(currentPath) {
 }
 
 navanchors.forEach(nav => {
-	nav.addEventListener("click", () => {
-		let route = nav.getAttribute("data-action");
-		changeContent(route);
-		history.pushState({}, "", route);
-		updateNavActiveState(route);
+	nav.addEventListener("click", (e) => {
+		let route = nav.getAttribute("data-action") || nav.getAttribute("href");
+		if (route && (route.startsWith("/") || !route.startsWith("http"))) {
+			e.preventDefault();
+			changeContent(route);
+			history.pushState({}, "", route);
+			updateNavActiveState(route);
+		}
 	});
 	nav.addEventListener("mouseenter", () => {
 		nav.classList.add("hoverActive");
@@ -74,7 +77,23 @@ async function changeContent(router) {
 
 	// Inject new content
 	asideContainer.innerHTML = newContent.innerHTML;
-	document.title = route.title
+	
+	// Dynamic SEO updates
+	if (route.title) {
+		document.title = route.title;
+	}
+	const fullUrl = `https://sanjaychouhan.netlify.app${router === "/" ? "" : router}`;
+	const canonical = document.querySelector('link[rel="canonical"]');
+	if (canonical) canonical.setAttribute("href", fullUrl);
+
+	const ogUrl = document.querySelector('meta[property="og:url"]');
+	if (ogUrl) ogUrl.setAttribute("content", fullUrl);
+
+	const ogTitle = document.querySelector('meta[property="og:title"]');
+	if (ogTitle && route.title) ogTitle.setAttribute("content", route.title);
+
+	const metaDesc = document.querySelector('meta[name="description"]');
+	if (metaDesc && route.description) metaDesc.setAttribute("content", route.description);
 	// Restart content animation
 	asideContainer.classList.remove("mainAimationContent");
 	void asideContainer.offsetWidth;
