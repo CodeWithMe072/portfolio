@@ -752,7 +752,43 @@ function showExperiencesIntoHtml() {
     const container = document.querySelector("#experiences .experiences-container");
     if (!container || typeof experiences === "undefined") return;
 
-    container.innerHTML = experiences.map(exp => `
+    const resumeCardHtml = `
+        <div class="experiences-card resume-card" id="exp-resume">
+            <div class="experiences-card-head-part">
+                <div class="experiences-card-left-head-part" style="width: 100%;">
+                    <div class="card-heading" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
+                        <span>Curriculum Vitae / Resume <small style="font-size: 18px; font-weight: 400; opacity: 0.85;">— Sanjay Chouhan (PDF)</small></span>
+                        <span style="background: var(--token-purple-color, #914bf1); color: white; font-size: 12px; font-weight: 600; padding: 4px 12px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px;">Official Document</span>
+                    </div>
+                    <div class="ex-card-desc" style="width: 90%;">
+                        <p>Official backend engineering &amp; full-stack developer resume covering production system architecture, REST API design, database optimizations, microservices, and technical skillsets.</p>
+                        <div class="resume-actions-div" style="display: flex; gap: 14px; margin-top: 18px; flex-wrap: wrap;">
+                            <a href="/assets/Sanjay_Chouhan_Resume.pdf" target="_blank" rel="noopener" class="resume-btn preview-btn" style="display: inline-flex; align-items: center; gap: 8px; background: rgba(145, 75, 241, 0.2); border: 1px solid rgba(145, 75, 241, 0.5); color: #ffffff; padding: 10px 20px; border-radius: 10px; font-weight: 500; font-size: 14px; text-decoration: none; transition: all 0.3s ease;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                    <circle cx="12" cy="12" r="3"></circle>
+                                </svg>
+                                Preview Resume
+                            </a>
+                            <a href="/assets/Sanjay_Chouhan_Resume.pdf" download="Sanjay_Chouhan_Resume.pdf" class="resume-btn download-btn" style="display: inline-flex; align-items: center; gap: 8px; background: rgb(145, 75, 241); border: 1px solid rgb(145, 75, 241); color: #ffffff; padding: 10px 20px; border-radius: 10px; font-weight: 500; font-size: 14px; text-decoration: none; transition: all 0.3s ease;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                    <polyline points="7 10 12 15 17 10"></polyline>
+                                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                                </svg>
+                                Download Resume (PDF)
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ex-card-datetime">
+                        <span>Updated 2026 • Verified PDF Document</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+
+    const expCardsHtml = experiences.map(exp => `
         <div class="experiences-card" id="exp-${exp.id}">
             <div class="experiences-card-head-part">
                 <div class="experiences-card-left-head-part">
@@ -793,6 +829,47 @@ function showExperiencesIntoHtml() {
             </div>
         </div>
     `).join("");
+
+    container.innerHTML = expCardsHtml + resumeCardHtml;
+    setupResumeModalEvents();
+}
+
+function setupResumeModalEvents() {
+    const previewBtns = document.querySelectorAll(".preview-btn");
+    const modal = document.getElementById("resumeModal");
+    const closeBtn = document.getElementById("closeResumeModal");
+
+    previewBtns.forEach(btn => {
+        btn.addEventListener("click", function(e) {
+            e.preventDefault();
+            if (modal) {
+                modal.style.display = "flex";
+                void modal.offsetWidth;
+                modal.classList.add("active");
+                document.body.classList.add("no-scroll");
+            }
+        });
+    });
+
+    if (closeBtn && modal) {
+        closeBtn.onclick = function() {
+            modal.classList.remove("active");
+            setTimeout(() => {
+                modal.style.display = "none";
+                document.body.classList.remove("no-scroll");
+            }, 300);
+        };
+
+        modal.onclick = function(e) {
+            if (e.target === modal) {
+                modal.classList.remove("active");
+                setTimeout(() => {
+                    modal.style.display = "none";
+                    document.body.classList.remove("no-scroll");
+                }, 300);
+            }
+        };
+    }
 }
 
 backgroundHover();

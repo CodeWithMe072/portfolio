@@ -1,3 +1,13 @@
+if (window.self !== window.top) {
+    document.documentElement.classList.add("in-iframe");
+    document.addEventListener("DOMContentLoaded", function() {
+        const introScreen = document.getElementById("introScreen");
+        const loader = document.getElementById("lodingConatiner");
+        if (introScreen) introScreen.style.setProperty("display", "none", "important");
+        if (loader) loader.style.setProperty("display", "none", "important");
+    });
+}
+
 let urlEndpoint = window.location.pathname
 
 let bodyHtml = `
@@ -541,8 +551,14 @@ function settleIntroRings(introRingAnim) {
 
 function initIntroScreen() {
     const introScreen = document.getElementById("introScreen");
-    const enterBtn = document.getElementById("enterBtn");
-    const introRingAnim = document.getElementById("introRingAnim");
+    const lodingConatiner = document.getElementById("lodingConatiner");
+
+    // TEMPORARY BYPASS INTRO ANIMATION (Disable intro screen until requested)
+    if (introScreen) introScreen.style.setProperty("display", "none", "important");
+    if (lodingConatiner) lodingConatiner.style.setProperty("display", "none", "important");
+    document.documentElement.classList.remove("no-scroll");
+    document.body.classList.remove("no-scroll");
+    return;
 
     if (!introScreen || !enterBtn) {
         runLoadingSequence();
